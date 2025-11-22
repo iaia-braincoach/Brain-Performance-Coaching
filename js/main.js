@@ -56,4 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
             track.style.animation = null;
         });
     }
+
+    const dt = document.getElementById('preferred-datetime');
+    if (!dt) return;
+    const now = new Date();
+    const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+      .toISOString()
+      .slice(0, 16); // format "YYYY-MM-DDTHH:MM"
+    dt.min = local;
 });

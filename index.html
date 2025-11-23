@@ -11,16 +11,22 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-              <img href="index.html" src="assets/images/iaia_logo.png" alt="Iaia Brain Coaching Logo">
-            </div>
-            <ul>
+        <!-- replaced navigation with responsive sidemenu + icons -->
+        <nav class="nav-main container">
+            <a class="brand" href="index.html">
+                <img src="assets/images/iaia_logo.png" alt="Iaia Brain Coaching Logo" class="logo">
+            </a>
+
+            <ul id="sidemenu" class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <!-- removed separate close icon; menu toggled via the bars button -->
             </ul>
+
+            <!-- single toggle button — same element toggles open/close -->
+            <i class="fas fa-bars open-menu" onclick="toggleMenu()" aria-label="Open menu" role="button"></i>
         </nav>
     </header>
 

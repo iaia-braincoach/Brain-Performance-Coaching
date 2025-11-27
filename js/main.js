@@ -1,23 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Handle contact form submission
+    // Initialize EmailJS (replace with your public key)
+    emailjs.init('3rDkD0r-2fQKz975J');
+
+    // Remove duplicate handlers: use a single submit handler that sends via EmailJS
     const contactForm = document.getElementById('contact-form');
-    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
+
+            // Optional: keep console logging for debug
             const formData = new FormData(contactForm);
             const formObj = Object.fromEntries(formData);
-            
-            // For now, just log the form data
             console.log('Form submitted:', formObj);
-            
-            // Here you would typically send the data to a server
-            alert('Thanks for your message! I\'ll get back to you soon.');
-            
-            // Reset the form
-            contactForm.reset();
+
+            // Send the form to EmailJS (replace SERVICE_ID and TEMPLATE_ID)
+            emailjs.sendForm('service_ug67avp', 'template_9y6qd2a', contactForm)
+                .then(function(response) {
+                    console.log('EMAILJS SUCCESS', response);
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, function(error) {
+                    console.error('EMAILJS ERROR', error);
+                    alert('Failed to send message. Please try again later.');
+                });
         });
     }
 
@@ -113,4 +118,97 @@ document.addEventListener('DOMContentLoaded', function() {
         toggleBtn.classList.add('fa-bars');
         toggleBtn.setAttribute('aria-label', 'Open menu');
     });
+
+    /* Service modal: content and behaviour */
+    (() => {
+      const services = {
+        "8-dimension": {
+          title: "8-Dimension Assessment",
+          body: `
+            <p>The 8-Dimension Assessment is a structured, evidence-informed questionnaire that evaluates mental performance across eight domains (e.g. attention, emotional regulation, motivation, routines). Results include a clear strengths/weaknesses summary, practical recommendations and a personalised action plan to address bottlenecks.</p>
+            <p>Duration: ~30–45 minutes to complete. Delivery: online report + 30min review call.</p>
+          `
+        },
+        "kickstart": {
+          title: "Kickstart Programme",
+          body: `
+            <p>The Kickstart Programme combines assessment, goal-setting and short-term coaching to build immediate momentum. Includes a baseline assessment, 4 x 1:1 sessions and practical exercises for training and competition routines.</p>
+            <p>Outcome: quick wins, clarity on priorities and a 6-week plan to embed new habits.</p>
+          `
+        },
+        "elite": {
+          title: "Elite Transformation",
+          body: `
+            <p>Elite Transformation is a long-form personalised coaching pathway for athletes aiming to compete at the highest level. It includes deep analysis, periodised mental skills training, in-person or remote coaching, and ongoing performance monitoring.</p>
+            <p>Designed for sustained growth: bespoke programme length, typically 3–6 months or longer.</p>
+          `
+        },
+        "group": {
+          title: "Group Sessions",
+          body: `
+            <p>Group Sessions focus on team dynamics, shared routines and collective performance psychology. Sessions are interactive, practical and tailored to the team's sporting context.</p>
+            <p>Available as single workshops or multi-session packages for teams.</p>
+          `
+        }
+      };
+
+      const modal = document.getElementById('service-modal');
+      const titleEl = document.getElementById('service-modal-title');
+      const bodyEl = document.getElementById('service-modal-body');
+      const closeBtn = modal && modal.querySelector('.modal-close');
+
+      function openService(id) {
+        const data = services[id];
+        if (!data) return;
+        titleEl.textContent = data.title;
+        bodyEl.innerHTML = data.body;
+        modal.removeAttribute('hidden');
+        modal.focus();
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.setAttribute('hidden', '');
+        titleEl.textContent = '';
+        bodyEl.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      // Delegated click listener for buttons
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('.service-open');
+        if (btn) {
+          const id = btn.dataset.service;
+          openService(id);
+          return;
+        }
+        // open modal if clicking card itself (optional)
+        const card = e.target.closest('.service-card');
+        if (card && !e.target.closest('.service-open')) {
+          const id = card.dataset.service;
+          if (id) openService(id);
+        }
+        // click on backdrop to close
+        if (e.target && e.target.dataset && e.target.dataset.close === 'true') {
+          closeModal();
+        }
+      });
+
+      // close button
+      closeBtn && closeBtn.addEventListener('click', closeModal);
+
+      // ESC key closes modal
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hasAttribute('hidden')) closeModal();
+      });
+
+      // trap focus inside modal (basic)
+      document.addEventListener('focus', function (e) {
+        if (!modal || modal.hasAttribute('hidden')) return;
+        if (!modal.contains(e.target)) {
+          e.stopPropagation();
+          modal.focus();
+        }
+      }, true);
+    })();
 });

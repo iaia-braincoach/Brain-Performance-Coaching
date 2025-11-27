@@ -31,7 +31,7 @@ html, body {
 }
 
 body {
-  font-family: "Inter", "Arial", sans-serif;
+  font-family: "IaiaFont", "Inter", "Arial", sans-serif;
   line-height: 1.6;
   color: var(--color-6);            /* deep purple for primary text */
   background: var(--color-5);      /* near-white page background */
@@ -42,6 +42,25 @@ body {
   padding-left: var(--page-pad);
   padding-right: var(--page-pad);
   box-sizing: border-box;
+}
+
+/* Custom webfonts (place .ttf/.otf/.woff/.woff2 files in assets/fonts/) */
+@font-face {
+  font-family: "IaiaFont";
+  src: url("../assets/fonts/CODE Light.woff2") format("woff2"),
+       url("../assets/fonts/Bright Melody Personal Use Only.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IaiaFont";
+  src: url("../assets/fonts/CODE Bold.woff2") format("woff2"),
+       url("../assets/fonts/Bright Melody Personal Use Only.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* -----------------------------
@@ -118,12 +137,12 @@ nav.container {
   padding-top: 0;
   display: block;
   align-items: center;
-  max-width: 90px;
+  max-width: 200px;
   margin: 0 auto; /* help center the logo on small screens */
 }
 
 .logo img {
-  width: 85px;
+  width: 100px;
   height: auto;
   display: flex;
 }
@@ -149,6 +168,13 @@ nav a:hover {
   color: white;
   background: linear-gradient(90deg, var(--color-9), var(--color-8));
   transform: translateY(-1px);
+}
+
+/* Remove hover effect from logo link */
+.brand:hover {
+  background: none;
+  color: inherit;
+  transform: none;
 }
 
 /* -----------------------------
@@ -204,6 +230,19 @@ nav a:hover {
   margin-top: 1rem;
   display: inline-block;
 }
+#hero .logo {
+  padding-top: 0;
+  display: block;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto; /* help center the logo on small screens */
+}
+
+#hero .logo img {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
 
 /* -----------------------------
    About
@@ -235,8 +274,21 @@ nav a:hover {
   color: rgba(34,34,34,0.92);
 }
 
+.about-text h3 {
+  font-size: 2rem;
+  color: var(--color-7);
+  margin-bottom: 0.5rem;
+}
+
+.about-text .subtitle {
+  font-size: 1rem;
+  color: var(--color-8);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
 .about-text p {
-  font-size: 20px;  
+  font-size: 18px;  
   margin-bottom: 0.75rem;
 }
 
@@ -248,8 +300,50 @@ nav a:hover {
   background: linear-gradient(90deg, rgba(223,164,75,0.12), rgba(140,82,255,0.06));
   border-radius: 6px;
   color: var(--color-6);
-  font-weight: 600;
+  font-weight: 400;
   border: 1px solid rgba(223,164,75,0.12);
+}
+
+.credentials {
+  background: rgba(136, 83, 173, 0.08);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.credentials p {
+  margin: 0.5rem 0;
+  color: var(--color-6);
+}
+
+.about-highlights {
+  margin: 2rem 0;
+}
+
+.highlight-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  align-items: flex-start;
+}
+
+.highlight-item i {
+  font-size: 1.5rem;
+  color: var(--color-4);
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.highlight-item p {
+  margin: 0;
+  color: var(--color-6);
+}
+
+.mission {
+  font-style: italic;
+  color: var(--color-7);
+  margin-top: 2rem;
 }
 
 /* -----------------------------
@@ -257,17 +351,17 @@ nav a:hover {
 ----------------------------- */
 .services-grid {
   display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
 }
 
 .service-card {
-  background: white;
-  padding: 1.25rem;
+  position: relative;
+  padding: 1.5rem;
   border-radius: 10px;
-  border: 1px solid rgba(95,54,133,0.05);
-  box-shadow: 0 8px 24px rgba(95,54,133,0.04);
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  background: var(--card-bg, #fff);
+  transition: transform .18s ease, box-shadow .18s ease;
+  overflow: visible;
 }
 
 .service-card h3 {
@@ -283,20 +377,97 @@ nav a:hover {
 
 .service-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(140,82,255,0.18);
-  box-shadow: 0 14px 40px rgba(140,82,255,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* accent ribbon */
-.service-card .ribbon {
-  display: inline-block;
-  padding: 0.25rem 0.6rem;
-  background: linear-gradient(90deg, var(--color-2), var(--color-4));
+/* hidden by default, revealed on hover */
+.service-open {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: linear-gradient(90deg,var(--color-8),var(--color-9));
   color: #fff;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  border: none;
+  padding: .5rem .8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .18s ease, transform .18s ease;
+  pointer-events: none;
+}
+
+/* show button when card is hovered or when focus inside card */
+.service-card:hover .service-open,
+.service-card:focus-within .service-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Modal base */
+.modal[hidden] { display: none; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* dark backdrop */
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(2px);
+}
+
+/* content card */
+.modal-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  width: calc(100% - 3rem);
+  background: var(--panel-bg, #fff);
+  color: var(--color-6);
+  padding: 1.5rem 1.75rem;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  max-height: 80vh;
+  overflow: auto;
+}
+
+/* close button */
+.modal-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-7);
+}
+
+/* modal title + body spacing */
+#service-modal-title {
+  margin-top: 0;
+  margin-bottom: .75rem;
+  color: var(--color-4);
+  font-size: 1.5rem;
+}
+#service-modal-body p { margin-bottom: .75rem; line-height: 1.6; }
+
+/* Ensure accessibility focus styles */
+.service-open:focus,
+.modal-close:focus {
+  outline: 3px solid rgba(136,83,173,0.18);
+  outline-offset: 3px;
 }
 
 /* -----------------------------
@@ -370,7 +541,7 @@ nav a:hover {
 
 .contact-info {
   flex: 1 1 320px;
-  background: linear-gradient(180deg, var(--color-5), rgba(250,250,248,0.6));
+  background: var(--color-10);
   padding: 1.25rem;
   border-radius: 10px;
   border: 1px solid rgba(95,54,133,0.04);

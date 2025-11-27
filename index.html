@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/images/iaia_logo.png">
-    <title>Iaia Brain Coaching | Elite Athletic Performance</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <title>Brain Performance Coaching | Elite Athletic Performance</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-PM4JP6081Q');
     </script>
-</head>
+    <link rel="preload" href="assets/fonts/CODE Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/CODE Light.woff2" as="font" type="font/woff2" crossorigin>
 <body>
     <header>
         <!-- replaced navigation with responsive sidemenu + icons -->
         <nav class="nav-main container">
             <a class="brand" href="index.html">
-                <img src="assets/images/iaia_logo.png" alt="Iaia Brain Coaching Logo" class="logo">
+                <img src="assets/images/Logo_w_words.png" alt="Iaia Brain Coaching Logo" class="logo">
             </a>
 
             <ul id="sidemenu" class="nav-links">
@@ -40,6 +41,9 @@
     </header>
 
     <section id="hero">
+
+        <img src="assets/images/Logo.png" alt="Iaia Brain Coaching Logo" class="logo">
+
         <h1>Unlock Your Athletic Potential</h1>
     </br>
         <p>Elite brain coaching for peak athletic performance</p>
@@ -52,12 +56,40 @@
                 <img src="assets/images/iaia_portrait.jpg" alt="Iaia Brain Coach">
             </div>
             <div class="about-text">
-                <p>With a background in Psychology, Cognitive Neuroscience, Sport Coaching & Strategic Learning.
-                  I help athletes strengthen their mental skills to reach Peak Performance during training and competition.
-                </br>
-                </br>
-                  My mission is to make Brain Coaching accessible to all athletes, not just to improve performance, but to become stronger, more focused, and more powerful as individuals.
-                </p>
+                <h3>Iaia Colella</h3>
+                <p class="subtitle">Brain Performance Coach</p>
+                
+                <div class="credentials">
+                    <p><strong>Accredited Brain Performance Coach (NLC)</strong></p>
+                    <p>MSc Cognitive & Clinical Neuroscience (Brunel University London)</p>
+                    <p>BSc Psychology (University of Bergamo)</p>
+                    <p>Tutor & Mentor in Strategic Learning</p>
+                </div>
+
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-feather"></i>
+                        <p>Background in Psychology, Cognitive Neuroscience & Strategic Learning</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-brain"></i>
+                        <p>I help athletes strengthen their mental skills to reach peak performance during training and competition.</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <p>Helping athletes overcome mental blocks & build peak-performance mindset</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-arrow-up"></i>
+                        <p>Turning challenges into strengths</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-fire"></i>
+                        <p>Empowering focused, confident & resilient athletes</p>
+                    </div>
+                </div>
+
+                <p class="mission">My mission is to make Brain Coaching accessible to all athletes, not just to improve performance, but to become stronger, more focused, and more powerful as individuals.</p>
             </div>
         </div>
     </section>
@@ -65,24 +97,38 @@
     <section id="services">
         <h2>Services</h2>
         <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card" data-service="8-dimension">
                 <h3>8-Dimension Assessment</h3>
                 <p>This detailed questionnaire offers a structured way to understand current strengths, area for growth and potential obstacles.</p>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="8-dimension">Learn more</button>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-service="kickstart">
                 <h3>Kickstart Programme</h3>
                 <p>Comprehensive evaluation of your current mental performance and areas for improvement.</p>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="kickstart">Learn more</button>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-service="elite">
                 <h3>Elite Transformation</h3>
                 <p>Personalized coaching sessions tailored to your specific sport and goals.</p>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="elite">Learn more</button>
             </div>
-            <div class="service-card">
+            <div class="service-card" data-service="group">
                 <h3>Group Sessions</h3>
                 <p>Group sessions designed to enhance team cohesion and collective performance.</p>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="group">Learn more</button>
             </div>
         </div>
     </section>
+
+    <!-- Modal (hidden by default) -->
+    <div id="service-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" tabindex="-1" hidden>
+      <div class="modal-backdrop" data-close="true"></div>
+      <div class="modal-content" role="document">
+        <button class="modal-close" type="button" aria-label="Close details">×</button>
+        <h3 id="service-modal-title"></h3>
+        <div id="service-modal-body"></div>
+      </div>
+    </div>
 
     <section id="testimonials">
         <h2>Athlete Testimonials</h2>
@@ -114,19 +160,20 @@
         <h2>Get in Touch</h2>
         <div class="contact-wrapper">
             <div class="contact-info">
-                <h3>Let's Connect</h3>
+                <h3>Let's Connect:</h3>
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:Mariarosariacolellacoach@gmail.com">Mariarosariacolellacoach@gmail.com</a>
+                        <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>
                     </div>
-                    <div class="contact-item">
+                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <a href="tel:+1234567890">+1 (234) 567-890</a>
                     </div>
                 </div>
+            </br>
                 <div class="social-links">
-                    <h3>Follow Me</h3>
+                    <h3>Follow Me:</h3>
                     <div class="social-icons">
                         <a href="https://linkedin.com/in/iaia" target="_blank" class="social-icon">
                             <i class="fab fa-linkedin"></i>
@@ -142,14 +189,14 @@
             </div>
             <div class="contact-container">
                 <form id="contact-form">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <select>
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <select name="service" required>
                         <option value="">Select Service</option>
-                        <option value="assessment">8-Dimension Assessment</option>
-                        <option value="assessment">Kickstart Programme</option>
-                        <option value="coaching">Elite Transformation</option>
-                        <option value="team">Group Sessions</option>
+                        <option value="8-Dimension Assessment">8-Dimension Assessment</option>
+                        <option value="Kickstart Programme">Kickstart Programme</option>
+                        <option value="Elite Transformation">Elite Transformation</option>
+                        <option value="Group Sessions">Group Sessions</option>
                     </select>
                     <input
                         type="datetime-local"
@@ -158,7 +205,7 @@
                         aria-label="Preferred date and time for a call"
                         required
                     >
-                    <textarea placeholder="Your Message" required></textarea>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>

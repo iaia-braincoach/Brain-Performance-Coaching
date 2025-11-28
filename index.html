@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
     <title>Brain Performance Coaching | Elite Athletic Performance</title>
+    <link rel="preload" href="assets/fonts/CODE_Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/CODE_Light.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
@@ -17,203 +19,363 @@
     gtag('js', new Date());
     gtag('config', 'G-PM4JP6081Q');
     </script>
-    <link rel="preload" href="assets/fonts/CODE Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/CODE Light.woff2" as="font" type="font/woff2" crossorigin>
+</head>    
 <body>
-    <header>
-        <!-- replaced navigation with responsive sidemenu + icons -->
+    <header class="header-sticky">
         <nav class="nav-main container">
             <a class="brand" href="index.html">
                 <img src="assets/images/Logo_w_words.png" alt="Iaia Brain Coaching Logo" class="logo">
             </a>
 
             <ul id="sidemenu" class="nav-links">
-                <li><a href="#about">About</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#mission">Mission</a></li>
+                <li><a href="#method">Method&trade;</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <!-- removed separate close icon; menu toggled via the bars button -->
             </ul>
 
-            <!-- single toggle button — same element toggles open/close -->
-            <i class="fas fa-bars open-menu" onclick="toggleMenu()" aria-label="Open menu" role="button"></i>
+            <i class="fas fa-bars open-menu" onclick="toggleMenu()" aria-label="Open menu" role="button" tabindex="0"></i>
         </nav>
     </header>
 
-    <section id="hero">
-
-        <img src="assets/images/Logo.png" alt="Iaia Brain Coaching Logo" class="logo">
-
-        <h1>Unlock Your Athletic Potential</h1>
-    </br>
-        <p>Elite brain coaching for peak athletic performance</p>
+    <!-- HERO SECTION: Enhanced with better typography & animation -->
+    <section id="hero" class="hero-enhanced">
+        <div class="hero-content">
+            <div class="hero-text">
+                <img src="assets/images/Logo.png" alt="Iaia Brain Coaching Logo" class="hero-logo fade-in-up">
+                <h1 class="hero-title fade-in-up" style="animation-delay: 0.4s;">
+                    TRAIN YOUR BRAIN
+                </h1>
+                <p class="hero-subtitle fade-in-up" style="animation-delay: 0.8s;">
+                    Unlock your Peak Performance
+                </p>
+                <a href="#contact" class="cta-button fade-in-up" style="animation-delay: 1.2s;">
+                    Book Your Consultation
+                </a>
+            </div>
+        </div>
+       <!-- <div class="hero-scroll-indicator fade-in-up" style="animation-delay: 0.8s;">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>-->
     </section>
 
-    <section id="about">
-        <h2>About Me</h2>
+    <!-- ABOUT SECTION: Alternating image/text layout -->
+    <section id="about" class="about-enhanced">
+        <div class="section-header fade-in">
+            <h2>About Me</h2>
+            <div class="header-underline"></div>
+        </div>
+
         <div class="about-content">
-            <div class="about-image">
+            <div class="about-image fade-in-left">
                 <img src="assets/images/iaia_portrait.jpg" alt="Iaia Brain Coach">
+                <div class="image-accent"></div>
             </div>
-            <div class="about-text">
-                <h3>Iaia Colella</h3>
-                <p class="subtitle">Brain Performance Coach</p>
-                
-                <div class="credentials">
-                    <p><strong>Accredited Brain Performance Coach (NLC)</strong></p>
-                    <p>MSc Cognitive & Clinical Neuroscience (Brunel University London)</p>
-                    <p>BSc Psychology (University of Bergamo)</p>
-                    <p>Tutor & Mentor in Strategic Learning</p>
-                </div>
+            
+            <div class="about-text fade-in-right">
+                <h3 class="about-name">Iaia Colella</h3>
+                <p class="about-role">Brain Performance Coach</p>
+    
 
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <i class="fas fa-feather"></i>
-                        <p>Background in Psychology, Cognitive Neuroscience & Strategic Learning</p>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-brain"></i>
-                        <p>I help athletes strengthen their mental skills to reach peak performance during training and competition.</p>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-dumbbell"></i>
-                        <p>Helping athletes overcome mental blocks & build peak-performance mindset</p>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-arrow-up"></i>
-                        <p>Turning challenges into strengths</p>
-                    </div>
-                    <div class="highlight-item">
-                        <i class="fas fa-fire"></i>
-                        <p>Empowering focused, confident & resilient athletes</p>
-                    </div>
-                </div>
+                <p class="about-intro">
+                    I’m Iaia Colella, a Brain Performance Coach with a background in psychology, neuroscience and sport performance. I help athletes train their mind with the same structure, discipline and intensity they use to train their body, so they can compete with clarity, confidence and control.
+                </p>
 
-                <p class="mission">My mission is to make Brain Coaching accessible to all athletes, not just to improve performance, but to become stronger, more focused, and more powerful as individuals.</p>
+                <p class="about-intro">
+                    Before becoming a coach, I spent years studying human behaviour, performance and the mental patterns that shape how we think, feel and act under pressure. Through my BSc in Psychology and my MSc in Clinical & Cognitive Neuroscience at Brunel University London, I discovered one truth that drives all my work today: your brain is trainable and mental performance is a skill you can build.
+                </p>
+
+                <p class="about-intro">
+                    I’ve worked with athletes across different sports, helping them overcome mental blocks, regulate emotions, build confidence and perform consistently at their highest potential.
+                </p>
+
+                <p class="about-intro">
+                    My approach is structured, scientific and personalised. I don’t teach generic “mindset”. I help athletes build mental systems, cognitive habits and performance routines that work when the pressure is highest: in training, in competition and in recovery.
+                </p>
+
+                <p class="about-intro">
+                    I founded Brain Performance Coaching to give athletes what’s often missing in traditional training: a place to strengthen the mind as deliberately as the body, develop resilience, and perform with unwavering focus.
+                </p>
+
+                <p class="about-intro">
+                    If you’re ready to elevate your mental game, unlock your potential and become the athlete you know you can be, I’d love to <strong>work with you</strong>.
+                </p>
             </div>
         </div>
     </section>
 
-    <section id="services">
-        <h2>Services</h2>
+    <!-- MISSION SECTION: Full-width background image with overlay -->
+    <section id="mission" class="mission-enhanced">
+        <div class="mission-overlay">
+            <div class="mission-content fade-in">
+                <h2>My Mission</h2>
+                <p><strong>"My mission is to make brain training an essential part of every athlete’s development — not only to improve performance, but to build stronger, more focused and mentally resilient individuals.
+                    Through science-based tools, personalised coaching and deep self-awareness, I empower athletes to perform with confidence, clarity and purpose — in sport and in life.</strong></p>
+            </div>
+        </div>
+    </section>  
+
+    <!-- METHOD SECTION: Step-by-step visual process -->
+    <section id="method" class="method-enhanced">
+        <div class="section-header fade-in">
+            <h2> 8-DIMENSION METHOD&trade;</h2>
+            <p class="section-subtitle">A structured approach to mental performance</p>
+            <div class="header-underline"></div>
+            <p>A neuroscience-based framework to understand and strengthen your mental performance. The 8-Dimension Assessment is the foundation of my coaching approach.</p>
+            <p>Developed from psychology and cognitive neuroscience, it evaluates eight key areas that influence performance:</p>
+            <ul class="method-dimensions">
+                <li><strong>Focus & Attention:</strong> Ability to maintain concentration during training and competition.</li>
+                <li><strong>Emotional Regulation:</strong> Managing stress, anxiety and emotional responses under pressure.</li>
+                <li><strong>Confidence & Self-Belief:</strong> Trusting your skills and preparation in high-stakes situations.</li>
+                <li><strong>Motivation & Goal Setting:</strong> Setting clear objectives and sustaining drive throughout the season.</li>
+                <li><strong>Resilience & Coping:</strong> Bouncing back from setbacks and maintaining mental toughness.</li>
+                <li><strong>Visualization & Imagery:</strong> Using mental rehearsal to enhance performance and prepare for competition.</li>
+                <li><strong>Decision Making & Problem Solving:</strong> Making quick, effective choices during dynamic situations.</li>
+                <li><strong>Recovery & Mindfulness:</strong> Techniques to relax, recover and maintain mental clarity.</li>
+            </ul>
+            <div class="method-image fade-in-left">
+                <img src="assets/images/8_Dimension_Assessment.png" alt="8-Dimension Assessment">
+                <div class="image-accent"></div>
+            </div>
+            </br>
+            <h3>Every athlete I work with starts with this assessment, as the baseline of their mental performance profile. It helps us identify strengths, patterns, blind spots and areas for growth.</h3>
+    
+        </div>  
+    </section>
+
+    <!-- SERVICES SECTION: Enhanced cards with better hover states -->
+    <section id="services" class="services-enhanced">
+        <div class="section-header fade-in">
+            <h2>Services Designed for Your Success</h2>
+            <p class="section-subtitle">Choose the program that fits your needs</p>
+            <div class="header-underline"></div>
+        </div>
+
         <div class="services-grid">
-            <div class="service-card" data-service="8-dimension">
-                <h3>8-Dimension Assessment</h3>
-                <p>This detailed questionnaire offers a structured way to understand current strengths, area for growth and potential obstacles.</p>
-                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="8-dimension">Learn more</button>
-            </div>
-            <div class="service-card" data-service="kickstart">
-                <h3>Kickstart Programme</h3>
-                <p>Comprehensive evaluation of your current mental performance and areas for improvement.</p>
-                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="kickstart">Learn more</button>
-            </div>
-            <div class="service-card" data-service="elite">
-                <h3>Elite Transformation</h3>
-                <p>Personalized coaching sessions tailored to your specific sport and goals.</p>
+            <div class="service-card fade-in-up" data-service="8-dimension">
+                <div class="service-card-header">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Elite 1:1 Programme</h3>
+                </div>
+                <p>A 10–12 week personalised 1:1 journey designed around your sport, your goals and your specific performance challenges.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> For athletes who want to build mental strength, achieve consistency and perform under pressure.</li>
+                    <li><i class="fas fa-check-circle"></i> Ideal for those committed to sustainable peak performance and the flow state.</li>
+                </ul>
                 <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="elite">Learn more</button>
             </div>
-            <div class="service-card" data-service="group">
-                <h3>Group Sessions</h3>
-                <p>Group sessions designed to enhance team cohesion and collective performance.</p>
+
+            <div class="service-card fade-in-up" data-service="kickstart" style="animation-delay: 0.1s;">
+                <div class="service-card-header">
+                    <i class="fas fa-book"></i>
+                    <h3>Workshop</h3>
+                </div>
+                <p>A high-impact introduction to brain training tools for athletes.</p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check-circle"></i> Ideal for sport academies, development squads or teams looking for an initial experience with mental performance training.</li>
+                </ul>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="workshop">Learn more</button>
+            </div>
+
+            <div class="service-card fade-in-up" data-service="elite" style="animation-delay: 0.2s;">
+                <div class="service-card-header">
+                    <i class="fas fa-users"></i>
+                    <h3>Group Training Cycle</h3>
+                </div>
+                <p>A structured mental training programme delivered monthly or fortnightly for specific squads or age groups.</p>
+                <ul class="service-features">
+
+                </ul>
                 <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="group">Learn more</button>
+            </div>
+
+            <div class="service-card fade-in-up" data-service="group" style="animation-delay: 0.3s;">
+                <div class="service-card-header">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Custom Partnership</h3>
+                </div>
+                <p>A long-term integration with specific teams, coaches or agencies.</p>
+                <ul class="service-features"></li>
+                    <li><i class="fas fa-check-circle"></i> A fully tailored partnership that supports performance units throughout the season with ongoing coaching, assessments and follow-ups.</li>
+                    <li><i class="fas fa-check-circle"></i> Perfect for agencies, academies, performance programmes and private sport organisations.</li>
+                </ul>
+                <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="partnership">Learn more</button>
             </div>
         </div>
     </section>
 
     <!-- Modal (hidden by default) -->
     <div id="service-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" tabindex="-1" hidden>
-      <div class="modal-backdrop" data-close="true"></div>
-      <div class="modal-content" role="document">
-        <button class="modal-close" type="button" aria-label="Close details">×</button>
-        <h3 id="service-modal-title"></h3>
-        <div id="service-modal-body"></div>
-      </div>
+        <div class="modal-backdrop" data-close="true"></div>
+        <div class="modal-content" role="document">
+            <button class="modal-close" type="button" aria-label="Close details">×</button>
+            <h3 id="service-modal-title"></h3>
+            <div id="service-modal-body"></div>
+        </div>
     </div>
 
-    <section id="testimonials">
-        <h2>Athlete Testimonials</h2>
+    <!-- TESTIMONIALS SECTION: Modern carousel -->
+    <section id="testimonials" class="testimonials-enhanced">
+        <div class="section-header fade-in">
+            <h2>What Athletes Say</h2>
+            <div class="header-underline"></div>
+        </div>
+        
         <div class="testimonials-container">
             <div class="testimonials-track">
-                <!-- Original testimonials -->
-                <div class="testimonial-card">
-                    <p>"Working with Iaia transformed my approach to competition. My focus and confidence have never been better."</p>
-                    <cite>- Sarah M., Professional Tennis Player</cite>
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </br>
+                    <p>"Working with Iaia transformed my approach to competition. My focus and confidence have never been better. I went from second-guessing myself to trusting my training."</p>
+                    <cite>Sarah M. — Professional Tennis Player</cite>
                 </div>
-                <div class="testimonial-card">
-                    <p>"The mental tools I learned from Iaia helped me break through performance plateaus I'd been stuck at for years."</p>
-                    <cite>- James R., Olympic Swimmer</cite>
+
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </br>
+                    <p>"The mental tools I learned from Iaia helped me break through performance plateaus I'd been stuck at for years. This is the missing piece every athlete needs."</p>
+                    <cite>James R. — Olympic Swimmer</cite>
                 </div>
-                <!-- Cloned testimonials for seamless loop -->
-                <div class="testimonial-card">
-                    <p>"Working with Iaia transformed my approach to competition. My focus and confidence have never been better."</p>
-                    <cite>- Sarah M., Professional Tennis Player</cite>
+
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </br>
+                    <p>"Iaia's coaching gave me the mental clarity I needed during high-pressure competitions. Her approach is scientific, supportive, and incredibly effective."</p>
+                    <cite>Marcus T. — Elite Basketball Coach</cite>
                 </div>
-                <div class="testimonial-card">
-                    <p>"The mental tools I learned from Iaia helped me break through performance plateaus I'd been stuck at for years."</p>
-                    <cite>- James R., Olympic Swimmer</cite>
+
+                <!-- Cloned for seamless loop -->
+                <div class="testimonial-card fade-in-up">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </br>
+                    <p>"Working with Iaia transformed my approach to competition. My focus and confidence have never been better. I went from second-guessing myself to trusting my training."</p>
+                    <cite>Sarah M. — Professional Tennis Player</cite>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact">
-        <h2>Get in Touch</h2>
+    <!-- CONTACT SECTION: Improved two-column layout -->
+    <section id="contact" class="contact-enhanced">
+        <div class="section-header fade-in">
+            <h2>Let's Work Together</h2>
+            <p class="section-subtitle">Book your free consultation today</p>
+            <div class="header-underline"></div>
+        </div>
+
         <div class="contact-wrapper">
-            <div class="contact-info">
-                <h3>Let's Connect:</h3>
+            <div class="contact-info fade-in-left">
+                <h3>Get in Touch</h3>
+                <p>Ready to take your performance to the next level? Reach out and let's discuss how brain coaching can help you achieve your athletic goals.</p>
+                
                 <div class="contact-details">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>
+                        </div>
                     </div>
-                     <div class="contact-item">
+                    
+                    <div class="contact-item">
                         <i class="fas fa-phone"></i>
-                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        <div>
+                            <span class="contact-label">Phone</span>
+                            <a href="tel:+1234567890">+1 (234) 567-890</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span class="contact-label">Response Time</span>
+                            <p>Within 24 hours</p>
+                        </div>
                     </div>
                 </div>
-            </br>
-                <div class="social-links">
-                    <h3>Follow Me:</h3>
+
+                <div class="social-links fade-in-up">
+                    <h4>Follow Me:</h4>
                     <div class="social-icons">
-                        <a href="https://linkedin.com/in/iaia" target="_blank" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
+                        <a href="https://linkedin.com/in/iaia" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://instagram.com/iaiabraincoach" target="_blank" class="social-icon">
+                        <a href="https://instagram.com/iaiabraincoach" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://twitter.com/iaiabraincoach" target="_blank" class="social-icon">
+                        <a href="https://twitter.com/iaiabraincoach" target="_blank" rel="noopener" class="social-icon" aria-label="Twitter">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="contact-container">
-                <form id="contact-form">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <select name="service" required>
-                        <option value="">Select Service</option>
-                        <option value="8-Dimension Assessment">8-Dimension Assessment</option>
-                        <option value="Kickstart Programme">Kickstart Programme</option>
-                        <option value="Elite Transformation">Elite Transformation</option>
-                        <option value="Group Sessions">Group Sessions</option>
-                    </select>
-                    <input
-                        type="datetime-local"
-                        id="preferred-datetime"
-                        name="preferred_datetime"
-                        aria-label="Preferred date and time for a call"
-                        required
-                    >
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
+
+            <div class="contact-form-wrapper fade-in-right">
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
+                    </div>
+
+                    <div class="form-group">
+                        <select name="service" required aria-label="Select service">
+                            <option value="">Select Your Interest</option>
+                            <option value="8-Dimension Assessment">8-Dimension Assessment</option>
+                            <option value="Kickstart Programme">Kickstart Programme</option>
+                            <option value="Elite Transformation">Elite Transformation</option>
+                            <option value="Group Sessions">Group Sessions</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="datetime-local" name="preferred_datetime" placeholder="Preferred Date & Time" required aria-label="Preferred date and time for a call">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Tell me about your goals..." required aria-label="Your message"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Iaia Brain Coaching. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Iaia Brain Coaching. All rights reserved.</p>
+            <p class="footer-tagline">Train your Brain - Unlock your Peak Performance</p>
+        </div>
     </footer>
 
     <script src="js/main.js"></script>

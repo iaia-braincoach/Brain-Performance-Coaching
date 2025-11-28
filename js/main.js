@@ -122,29 +122,41 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Service modal: content and behaviour */
     (() => {
       const services = {
-        "8-dimension": {
-          title: "8-Dimension Assessment",
+        "workshop": {
+          title: "WORKSHOP",
           body: `
             <p>The 8-Dimension Assessment is a structured, evidence-informed questionnaire that evaluates mental performance across eight domains (e.g. attention, emotional regulation, motivation, routines). Results include a clear strengths/weaknesses summary, practical recommendations and a personalised action plan to address bottlenecks.</p>
             <p>Duration: ~30–45 minutes to complete. Delivery: online report + 30min review call.</p>
           `
         },
-        "kickstart": {
-          title: "Kickstart Programme",
+        "group": {
+          title: "GROUP TRAINING CYCLE",
           body: `
             <p>The Kickstart Programme combines assessment, goal-setting and short-term coaching to build immediate momentum. Includes a baseline assessment, 4 x 1:1 sessions and practical exercises for training and competition routines.</p>
             <p>Outcome: quick wins, clarity on priorities and a 6-week plan to embed new habits.</p>
           `
         },
         "elite": {
-          title: "Elite Transformation",
+          title: "ELITE PROGRAM",
           body: `
-            <p>Elite Transformation is a long-form personalised coaching pathway for athletes aiming to compete at the highest level. It includes deep analysis, periodised mental skills training, in-person or remote coaching, and ongoing performance monitoring.</p>
-            <p>Designed for sustained growth: bespoke programme length, typically 3–6 months or longer.</p>
+            <p>A 10–12 weeks transformative journey to elevate your mindset, mental skills, and autonomy. Ideal for athletes committed to sustainable peak performance and ready to unlock long-term mental mastery and flow.</p>
+            <h4>Programme Features:</h4>
+            <ul style="list-style: none; padding-left: 0;">
+              <li>🏁 <strong>1-to-1 Sessions</strong> – 10 personalised sessions</li>
+              <li>📝 <strong>Initial Assessment</strong> – baseline evaluation</li>
+              <li>🎯 <strong>Personalised Goal Setting</strong></li>
+              <li>🧠 <strong>Mental Performance Tools</strong></li>
+              <li>💪 <strong>Practical Exercises</strong> – weekly implementation</li>
+              <li>📲 <strong>Daily WhatsApp Support</strong></li>
+              <li>⚡ <strong>Full Personalisation of All Sessions</strong></li>
+              <li>📊 <strong>Weekly Strategy Reviews & Custom Techniques</strong></li>
+              <li>🌊 <strong>Flow State Training</strong></li>
+            </ul>
           `
         },
-        "group": {
-          title: "Group Sessions",
+
+        "partnership": {
+          title: "CUSTOM PARTNERSHIPS",
           body: `
             <p>Group Sessions focus on team dynamics, shared routines and collective performance psychology. Sessions are interactive, practical and tailored to the team's sporting context.</p>
             <p>Available as single workshops or multi-session packages for teams.</p>
@@ -211,4 +223,54 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       }, true);
     })();
+
+    /* ========== Scroll-triggered animations ========== */
+    (function() {
+        // Select elements that should animate when scrolled into view
+        const animatedElements = document.querySelectorAll(
+            '.fade-in, .fade-in-up, .fade-in-left, .fade-in-right'
+        );
+
+        if (!('IntersectionObserver' in window) || animatedElements.length === 0) {
+            // fallback: just set opacity to 1 so they are visible
+            animatedElements.forEach(el => {
+                el.style.opacity = 1;
+                el.style.animationPlayState = 'running';
+            });
+            return;
+        }
+
+        // Setup a small stagger based on groups: elements inside the same parent will be staggered slightly
+        animatedElements.forEach((el, idx) => {
+            // if element already has inline animationDelay, keep it; otherwise set a small default
+            if (!el.style.animationDelay) {
+                // compute delay per element but keep small so layout feels snappy
+                const delay = (idx % 6) * 0.06; // cycles 0..0.3s for visual variety
+                el.style.animationDelay = `${delay}s`;
+            }
+            // start paused & invisible; IntersectionObserver will start the animation
+            el.style.opacity = 0;
+            el.style.animationPlayState = 'paused';
+        });
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    el.style.opacity = 1;
+                    el.style.animationPlayState = 'running';
+                    // optional: unobserve once played to save performance
+                    obs.unobserve(el);
+                }
+            });
+        }, {
+            root: null,
+            rootMargin: '0px 0px -10% 0px', // trigger slightly before bottom
+            threshold: 0.15
+        });
+
+        animatedElements.forEach(el => observer.observe(el));
+    })();
+
+    // End of DOMContentLoaded
 });

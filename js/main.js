@@ -272,5 +272,34 @@ document.addEventListener('DOMContentLoaded', function() {
         animatedElements.forEach(el => observer.observe(el));
     })();
 
+    (function(){
+    const header = document.querySelector('.header-sticky');
+    if (!header) return;
+
+    function applyHeaderPadding(){
+      // computed height (includes margins/padding if any)
+      const headerRect = header.getBoundingClientRect();
+      const h = Math.ceil(headerRect.height);
+      // set CSS variable and fallback body padding
+      document.documentElement.style.setProperty('--header-height', h + 'px');
+      document.body.style.paddingTop = h + 'px';
+      // ensure mobile menu sits below header
+      const navLinks = document.querySelector('.nav-links');
+      if (navLinks) navLinks.style.top = h + 'px';
+    }
+
+    // run on load, resize, and when fonts finish loading
+    window.addEventListener('load', applyHeaderPadding);
+    window.addEventListener('resize', applyHeaderPadding);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(applyHeaderPadding).catch(()=>{});
+    } else {
+      // fallback if Font API not supported
+      setTimeout(applyHeaderPadding, 250);
+    }
+
+    // If you have a menu toggle that changes header height, call applyHeaderPadding() after toggling.
+    window.applyHeaderPadding = applyHeaderPadding;
+  })();
     // End of DOMContentLoaded
 });

@@ -37,7 +37,7 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; width: 100%; scroll-behavior:auto; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
 body {
-  font-family: 'CODE_Light', 'Segoe UI', 'Roboto', system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Bright-Melody','CODE_Light', 'Segoe UI', 'Roboto', system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   background: var(--color-10);
   color: var(--color-12);
   font-size: 16px;
@@ -48,13 +48,19 @@ body {
 /* =========================
    TYPOGRAPHY
    ========================= */
+/* ========================
+   Uppercase / Headers Font
+   ========================= */   
 @font-face{
   font-family: "CODE_Bold";
   src: url('../assets/fonts/CODE_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: swap; 
 }
+/* ========================
+   Uppercase / Headers Font
+   ========================= */
 @font-face{
   font-family: "CODE_Light";
   src: url('../assets/fonts/CODE_Light.woff2') format('woff2');
@@ -62,7 +68,9 @@ body {
   font-style: normal;
   font-display: swap;
 }
-
+/* ========================
+   Lowercase Font
+   ========================= */
 @font-face{
   font-family: "Bright-Melody";
   src: url('../assets/fonts/Bright_Melody.ttf') format('truetype');
@@ -71,11 +79,58 @@ body {
   font-display: swap;
 }
 
-h1,h2,h3,h4,h5,h6 { font-family: "CODE_Bold", system-ui, sans-serif; color: var(--color-12); line-height:1.15; }
-h1 { font-size: 3rem; color: var(--color-12); }
-h2 { font-size: 2.4rem; color: var(--color-12); margin-bottom: 0.6rem; }
-h3 { font-size: 1.4rem; color: var(--color-12); }
-p { color: var(--color-12); margin-bottom: 1rem; font-size: 1rem; }
+/* =========================
+   HEADINGS / UPPERCASE
+   ========================= */
+h1,h2,h3,h4,h5,h6,
+.about-title, .services-title, .testimonials-title, .contact-title, 
+.hero-title, .contact-form h3, .mission-content.fade-in h2, .section-header h2, .content-wrapper h3
+{
+    font-family: "CODE_Bold", system-ui, sans-serif;
+    color: var(--color-6);
+    text-transform: uppercase;
+}
+
+/* =========================
+   BODY / LOWERCASE
+   ========================= */
+body, p, .service-features li, .about-intro, .testimonial-card p, 
+.contact-item, .hero-subtitle,.section-header p,.method-dimensions, .mission-content.fade-in p, .method-enhanced h3,
+.service-card p, .contact-wrapper p
+{
+    font-family: "Bright-Melody", "CODE_Light", system-ui, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-transform:none;
+    color: var(--color-12);
+}
+/* =========================
+   STRONG / EMPHASIS
+   ========================= */
+.method-dimensions strong, .about-intro strong, .about-text strong, .testimonial-card cite strong 
+{
+    font-family: "Bright-Melody", "CODE_Light", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    text-transform:none;
+    color: var(--color-7);
+}
+
+/* =========================
+   SUBTITLES / LIGHT TEXT
+   ========================= */
+.hero-subtitle, .about-text, .about-role, .method-enhanced .section-subtitle, .footer-content p {
+    font-family: "CODE_Light", system-ui, sans-serif;
+    font-weight: 300;
+}
+
+/* =========================
+   CTA BUTTONS / NAV LINKS / EMPHASIS
+   ========================= */
+.cta-button, .service-open, .nav-links li a {
+    font-family: "CODE_Bold", system-ui, sans-serif;
+    font-weight: 700;
+}
 
 /* =========================
    LAYOUT / CONTAINERS
@@ -216,7 +271,7 @@ section:nth-child(odd)  { background: var(--color-10); }
   align-items: center;
 }
 
-.about-image img { margin-left: 5%; width:75%; border-radius: 50% 50% 0 0 / 30% 30% 0 0; box-shadow: var(--shadow-soft); object-fit:cover; height:auto; min-height:340px; }
+.about-image img { margin-left: 5%; width:45%; border-radius: 50% 50% 0 0 / 30% 30% 0 0; box-shadow: var(--shadow-soft); object-fit:cover; height:auto; min-height:100px; }
 .about-text { padding-top:0; }
 .about-intro { font-size:1.1rem; margin-bottom:1rem; color: var(--color-12); }
 
@@ -399,7 +454,6 @@ section:nth-child(odd)  { background: var(--color-10); }
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 1); /* adjust opacity for desired darkness */
   z-index: 1;
   pointer-events: none; /* allows clicks on image if needed */
   border-radius: var(--radius-lg);
@@ -425,7 +479,7 @@ section:nth-child(odd)  { background: var(--color-10); }
   right: -15px;
   width: 70px;
   height: 70px;
-  background: var(--color-8);
+  background: var(--color-);
   border-radius: 50%;
   opacity: 0.15;
 }
@@ -474,13 +528,13 @@ section:nth-child(odd)  { background: var(--color-10); }
 }
 .services-enhanced .section-subtitle {
   font-size: 1.1rem;
-  color: var(--color-5);
+  color: var(--color-8);
   margin-bottom: 0.8rem;
 }
 .services-enhanced .header-underline {
   width: 60px;
   height: 3px;
-  background: var(--color-6);
+  background: linear-gradient(90deg, var(--color-2), var(--color-4));
   margin: 0 auto;
   border-radius: 3px;
 }
@@ -625,13 +679,15 @@ section:nth-child(odd)  { background: var(--color-10); }
   animation: scroll-left 28s linear infinite;
 }
 .testimonial-card {
+  font-size: 15px;
   min-width: 300px;
+  max-height: 300px;
   background: #fff;
   border-radius: 12px;
   padding: 1.3rem;
   box-shadow: var(--shadow-subtle);
 }
-.testimonial-rating { color: var(--color-1); margin-bottom: 0.6rem; }
+/*.testimonial-rating { color: var(--color-1); margin-bottom: 0.6rem; }*/
 /* pause on hover */
 .testimonials-track:hover { animation-play-state: paused; }
 
@@ -643,9 +699,21 @@ section:nth-child(odd)  { background: var(--color-10); }
   grid-template-columns: 1fr 1fr;
   gap: 2.5rem;
 }
-.contact-item { display:flex; gap:1rem; align-items:flex-start; padding: 0.9rem 1rem; border-radius:12px; background: linear-gradient(180deg, rgba(140,82,255,0.02), rgba(140,82,255,0.01)); }
+.contact-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  width: 500px;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(140, 82, 255, 0.3) 0%,
+    rgba(95, 54, 133, 0.3) 100%
+  );
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* optional subtle shadow for depth */
+}
 .contact-item i { color: var(--color-6); font-size:1.25rem; margin-top:2px; }
-
 .contact-form input, .contact-form select, .contact-form textarea {
   width:100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(95,54,133,0.06); background: #fff; font-family: inherit;
 }

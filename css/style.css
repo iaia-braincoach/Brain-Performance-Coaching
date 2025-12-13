@@ -1,9 +1,7 @@
+
 /* ===========================================================
-   style.css — Branded to your palette
-   Background: #FAFAF8 (near-white)
-   Primary interactive color: #5F3685 (deep purple)
-   Layout style: Modern Minimalist (C1)
-   =========================================================== */
+   style.css — Branded to your palette - FULLY RESPONSIVE
+=========================================================== */
 html, body {
   width: 100%;
   max-width: 100%;
@@ -117,7 +115,7 @@ h1,h2,h3,h4,h5,h6,
    ========================= */
 body, p, .service-features li, .about-intro, .testimonial-card p, 
 .contact-item, .hero-subtitle,.section-header p,.method-dimensions,.mission-content p, .mission-content.fade-in p, .method-enhanced h3,
-.service-card p, .contact-wrapper p, .contact-item 
+.service-card p, .contact-wrapper p, .contact-item, .contact-label a
 {
     font-family: "Bright-Melody", "CODE_Light", system-ui, sans-serif;
     font-weight: 400;
@@ -276,7 +274,7 @@ section:nth-child(odd)  { background: var(--color-10); }
 }
 
 .hero-content { max-width: 900px; margin: 0 auto; z-index:2; }
-.hero-logo { height:250px; margin-bottom:25px; }
+.hero-logo { height:250px; max-height: 35vh; width: auto; margin-bottom:25px; }
 .hero-title { font-size: 3.2rem; color: var(--color-12); margin-bottom: 0.6rem; }
 .hero-subtitle { font-size: 1.15rem; color: var(--color-12); margin-bottom: 1.25rem; font-weight: 300; }
 
@@ -305,7 +303,7 @@ section:nth-child(odd)  { background: var(--color-10); }
   align-items: center;
 }
 
-.about-image img { margin-left: 10%; width:75%; border-radius: 50% 50% 10% 10% / 30% 30% 10% 10%; box-shadow: var(--shadow-soft); object-fit:cover; height:auto; min-height:150px; }
+.about-image img { margin-left: 10%; width:75%; max-width: 400px; border-radius: 50% 50% 10% 10% / 30% 30% 10% 10%; box-shadow: var(--shadow-soft); object-fit:cover; height:auto; min-height:150px; }
 .about-text { padding-top:0; }
 .about-intro { font-size:1.1rem; margin-bottom:1rem; color: var(--color-12); }
 
@@ -313,7 +311,7 @@ section:nth-child(odd)  { background: var(--color-10); }
 
 @media (max-width: 1024px){
   .about-content { grid-template-columns: 1fr; text-align: center; }
-  .about-image img { min-height: 150px; }
+  .about-image img { min-height: 150px; margin-left: auto; margin-right: auto; }
 }
 
 /* =========================
@@ -820,15 +818,21 @@ section:nth-child(odd)  { background: var(--color-10); }
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-  width: 500px;
+  width: 95%;
   padding: 0.9rem 1rem;
   border-radius: 12px;
   background: var(--color-11);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
-.contact-item i { color: var(--color-6); font-size:1.25rem; margin-top:2px; }
+.contact-item i {
+  color: var(--color-6); 
+  font-size:1rem; 
+  margin-top:2px; }
+.contact-item p { font-size:0.95rem; color: var(--color-12); } 
+.contact-label { display:block; margin-bottom:0.4rem; color: var(--color-6); }
 .contact-form input, .contact-form select, .contact-form textarea {
-  width:100%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(95,54,133,0.06); background: #fff; font-family: inherit;
+  width:95%; padding: 0.9rem 1rem; border-radius: 10px; border: 1px solid rgba(95,54,133,0.06); 
+  background: var(--color-11); font-family: inherit;
 }
 .contact-form textarea { min-height: 140px; resize: vertical; }
 
@@ -878,7 +882,6 @@ section:nth-child(odd)  { background: var(--color-10); }
     transform: scale(1.15);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
-
 /* =========================
    FOOTER
    ========================= */
@@ -948,8 +951,12 @@ footer {
   .container { padding: 0 1.25rem; }
   .hero-title { font-size: 2rem; }
   .hero-subtitle { font-size: 1rem; }
+  .hero-logo { height: 180px; max-height: 30vh; }
   .about-content { grid-template-columns: 1fr; text-align:center; }
+  .about-image img { width: 85%; margin-left: auto; margin-right: auto; }
   .contact-wrapper { grid-template-columns: 1fr; }
+  .contact-item { max-width: 100%; }
+  .services-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   
   /* Testimonial mobile fixes */
   .testimonial{
@@ -978,6 +985,28 @@ footer {
 }
 
 @media (max-width: 430px) {
+  :root { --page-pad: 1rem; }
+  section { padding: 2.5rem var(--page-pad); }
+  .hero-title { font-size: 1.75rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+  .hero-logo { height: 150px; max-height: 25vh; }
+  .cta-button { padding: 0.85rem 1.75rem; font-size: 0.9rem; }
+  .about-image img { width: 90%; }
+  .credentials-showcase { padding: 0.9rem; }
+  .mission-content h2 { font-size: 1.75rem; }
+  .mission-content p { font-size: 0.9rem; }
+  .method-enhanced { padding: 2rem 1rem; }
+  .method-enhanced .section-header h2 { font-size: 1.75rem; }
+  .method-dimensions li { font-size: 0.9rem; }
+  .services-enhanced { padding: 2.5rem 1rem; }
+  .services-enhanced .section-header h2 { font-size: 1.75rem; }
+  .service-card { padding: 1.5rem 1.25rem; }
+  .service-card-header h3 { font-size: 1.1rem; }
+  .contact-form input, .contact-form select, .contact-form textarea { padding: 0.75rem 0.85rem; font-size: 0.95rem; }
+  .submit-button { padding: 0.8rem 1.4rem; font-size: 0.9rem; }
+  .social-icon { width: 40px; height: 40px; font-size: 1.1rem; }
+  footer { padding: 1.75rem var(--page-pad); font-size: 0.9rem; }
+  
   .testimonial {
     padding: 2.5rem 1rem 3rem;
   }
@@ -1019,6 +1048,26 @@ footer {
 }
 
 @media (max-width: 300px) {
+  :root { --page-pad: 0.75rem; }
+  section { padding: 2rem var(--page-pad); }
+  .hero-title { font-size: 1.5rem; }
+  .hero-subtitle { font-size: 0.85rem; }
+  .hero-logo { height: 120px; }
+  .cta-button { padding: 0.75rem 1.5rem; font-size: 0.85rem; }
+  h1, h2, h3, h4, h5, h6 { font-size: 1.5rem; }
+  .about-image img { width: 95%; }
+  .mission-content h2 { font-size: 1.5rem; }
+  .mission-content p { font-size: 0.85rem; }
+  .method-enhanced .section-header h2 { font-size: 1.5rem; }
+  .services-enhanced .section-header h2 { font-size: 1.5rem; }
+  .service-card { padding: 1.25rem 1rem; }
+  .service-card-header h3 { font-size: 1rem; }
+  .service-card p, .service-features li { font-size: 0.85rem; }
+  .contact-form input, .contact-form select, .contact-form textarea { padding: 0.65rem 0.75rem; font-size: 0.9rem; }
+  .submit-button { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+  .social-icon { width: 36px; height: 36px; font-size: 1rem; }
+  footer { padding: 1.5rem var(--page-pad); font-size: 0.85rem; }
+  
   .testimonial__title {
     font-size: 1.25rem;
   }

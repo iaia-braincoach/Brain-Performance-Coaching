@@ -8,8 +8,10 @@
     <title>Brain Performance Coaching | Elite Athletic Performance</title>
     <link rel="preload" href="assets/fonts/CODE_Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="assets/fonts/CODE_Light.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q"></script>
@@ -80,27 +82,19 @@
                 <p class="about-role">Brain Performance Coach</p>
             </br>
                 <p class="about-intro">
-                    I’m Iaia Colella, a Brain Performance Coach with a background in psychology, neuroscience and sport performance. I help athletes train their mind with the same structure, discipline and intensity they use to train their body, so they can compete with clarity, confidence and control.
+                    I’m a Brain Performance Coach with a background in psychology and cognitive neuroscience. I help athletes train their brain with structure and intention, so they can perform with confidence and consistency.
                 </p>
 
                 <p class="about-intro">
-                    Before becoming a coach, I spent years studying human behaviour, performance and the mental patterns that shape how we think, feel and act under pressure. Through my BSc in Psychology and my MSc in Clinical & Cognitive Neuroscience at Brunel University London, I discovered one truth that drives all my work today: your brain is trainable and mental performance is a skill you can build.
+                    Before coaching, I spent years studying human behaviour, high-performance psychology and the mental processes that influence athletes under pressure. My approach is scientific, practical and personalised.
                 </p>
 
                 <p class="about-intro">
-                    I’ve worked with athletes across different sports, helping them overcome mental blocks, regulate emotions, build confidence and perform consistently at their highest potential.
+                    I’ve supported athletes across multiple sports, helping them regulate emotions, build stronger confidence, stay focused, and bounce back from setbacks.
                 </p>
 
                 <p class="about-intro">
-                    My approach is structured, scientific and personalised. I don’t teach generic “mindset”. I help athletes build mental systems, cognitive habits and performance routines that work when the pressure is highest: in training, in competition and in recovery.
-                </p>
-
-                <p class="about-intro">
-                    I founded Brain Performance Coaching to give athletes what’s often missing in traditional training: a place to strengthen the mind as deliberately as the body, develop resilience, and perform with unwavering focus.
-                </p>
-
-                <p class="about-intro">
-                    If you’re ready to elevate your mental game, unlock your potential and become the athlete you know you can be, I’d love to <strong>work with you</strong>.
+                    I founded Brain Performance Coaching to give athletes the tool that was missing in traditional training: a structured way to develop strong mental skills for training, competition and life.
                 </p>
             </div>
         </div>
@@ -111,8 +105,7 @@
         <div class="mission-overlay">
             <div class="mission-content fade-in">
                 <h2>My Mission</h2>
-                <p><strong>"My mission is to make brain training an essential part of every athlete’s development — not only to improve performance, but to build stronger, more focused and mentally resilient individuals.
-                    Through science-based tools, personalised coaching and deep self-awareness, I empower athletes to perform with confidence, clarity and purpose in sport and in life.</strong></p>
+                <p>"My mission is to make brain training an essential part of every athlete’s journey. I want athletes to recognise the power of training their mind with the same commitment they give to their body. Through this work, I empower athletes to perform with <strong>confidence</strong>, <strong>clarity</strong> and <strong>purpose</strong> — in sport and in life."</p>
             </div>
         </div>
     </section>  
@@ -121,10 +114,14 @@
     <section id="method" class="method-enhanced">
         <div class="section-header fade-in">
             <h2> 8-DIMENSION METHOD&trade;</h2>
-            <p class="section-subtitle">A structured approach to mental performance</p>
+            <p class="section-subtitle">
+                A neuroscience-based framework to understand and strengthen your mental performance.
+            </p>
             <div class="header-underline"></div>
-            <p>A neuroscience-based framework to understand and strengthen your mental performance. The 8-Dimension Assessment is the foundation of my coaching approach.</p>
-            <p>Developed from psychology and cognitive neuroscience, it evaluates eight key areas that influence performance:</p>
+            <p>The 8-Dimension Assessment is the foundation of my coaching approach. 
+            </p>
+            <p>Developed from psychology and cognitive neuroscience, it evaluates eight key areas that influence performance:
+            </p>
             </br>
             <ul class="method-dimensions">
                 <li><strong>Focus & Attention:</strong> Ability to maintain concentration during training and competition.</li>
@@ -216,17 +213,25 @@
             <div id="service-modal-body"></div>
         </div>
     </div>
+    <!-- TESTIMONIALS SECTION: Smooth horizontal scrolling -->
+    <section id="testimonials" class="testimonial">
+        <h2 class="testimonial__title fade-in-up">TESTIMONIALS</h2>
 
-    <section id="testimonials" class="testimonials-enhanced">
-    <div class="section-header fade-in">
-        <h2>Testimonials</h2>
-        <div class="header-underline"></div>
-    </div>
-    
-    <div class="testimonials-container">
-        <div class="testimonials-track"></div>
-    </div>
+        <div class="testimonial__swiper container swiper">
+            <div id="testimonial-wrapper" class="swiper-wrapper">
+            <!-- slides injected by JS -->
+            </div>
+
+            <!-- Pagination bullets -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Navigation buttons -->
+            <div class="swiper-button-prev"><i class="ri-arrow-left-long-line"></i></div>
+            <div class="swiper-button-next"><i class="ri-arrow-right-long-line"></i></div>
+        </div>
     </section>
+
+
 
     <!-- CONTACT SECTION: Improved two-column layout -->
         <section id="contact" class="contact-enhanced">
@@ -332,6 +337,9 @@
         </div>
     </footer>
 
-    <script src="./js/main.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/main.js"></script>
+
 </body>
 </html>

@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <img src="assets/img/avatar-default.png" alt="${item.author}" class="testimonial__img">
 
         <h3 class="testimonial__name">${item.author}</h3>
-
+        <!--
         <div class="testimonial__rating">
           <div class="testimonial__stars">
             <i class="ri-star-fill"></i>
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
           </div>
           <h3 class="testimonial__number">5.0</h3>
         </div>
-
+        -->
         <p class="testimonial__description">
           ${item.text}
         </p>

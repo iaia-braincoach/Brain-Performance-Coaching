@@ -127,7 +127,7 @@ body, p, .service-features li, .about-intro, .testimonial-card p,
 /* =========================
    STRONG / EMPHASIS
    ========================= */
-.method-dimensions strong, .about-intro strong, .about-text strong, .testimonial-card cite strong 
+.method-dimensions strong, .about-intro strong, .about-text strong, .testimonial-card cite strong, .mission-content p strong
 {
     font-family: "Bright-Melody", "CODE_Light", system-ui, sans-serif;
     font-weight: 600;
@@ -140,7 +140,8 @@ body, p, .service-features li, .about-intro, .testimonial-card p,
    SUBTITLES / LIGHT TEXT
    ========================= */
 .hero-subtitle, .about-text, .about-role, .method-enhanced .section-subtitle, .footer-content p {
-    font-family: "CODE_Light", system-ui, sans-serif;
+    font-family: "Bright-Melody", "CODE_Light", system-ui, sans-serif;
+    font-size: 20px;
     font-weight: 300;
 }
 
@@ -210,7 +211,7 @@ section:nth-child(odd)  { background: var(--color-10); }
 
 #sidemenu {
   opacity: 1;
-  visibility: hidden;
+  visibility: visible;
   pointer-events: auto;
   transform: translateY(-5px);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -302,7 +303,21 @@ section:nth-child(odd)  { background: var(--color-10); }
   gap: 3.5rem;
   align-items: center;
 }
-
+#about .section-header{
+  text-align: center;
+  margin-bottom: 3rem;
+}
+#about .section-header h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+#about .header-underline {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-2), var(--color-4));
+  margin: 0 auto;
+  border-radius: 3px;
+}
 .about-image img { margin-left: 10%; width:75%; max-width: 400px; border-radius: 50% 50% 10% 10% / 30% 30% 10% 10%; box-shadow: var(--shadow-soft); object-fit:cover; height:auto; min-height:150px; }
 .about-text { padding-top:0; }
 .about-intro { font-size:1.1rem; margin-bottom:1rem; color: var(--color-12); }
@@ -321,7 +336,6 @@ section:nth-child(odd)  { background: var(--color-10); }
   position: relative;
   width: 100%;
   min-height: 60vh;
-  background: url('../assets/images/mission-bg.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -345,7 +359,13 @@ section:nth-child(odd)  { background: var(--color-10); }
   max-width: 800px;
   z-index: 2;
 }
-
+#mission .header-underline {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-2), var(--color-4));
+  margin: 0 auto;
+  border-radius: 3px;
+}
 .mission-content h2 {
   font-size: 2.8rem;
   font-family: "CODE_Bold", sans-serif;
@@ -361,11 +381,6 @@ section:nth-child(odd)  { background: var(--color-10); }
   color: var(--color-5);
   font-weight: 300;
   margin: 0 auto;
-}
-
-.mission-content h2,
-.mission-content p {
-  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 
 .mission-content.fade-in {
@@ -427,6 +442,26 @@ section:nth-child(odd)  { background: var(--color-10); }
   border-radius: 2px;
   margin: 1rem auto 2rem auto;
 }
+.method-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.method-content {
+  text-align: left;
+}
+.method-header{
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem auto;
+}
+.method-content .header-underline {
+  margin-left: 0;
+}
 
 .method-dimensions {
   list-style: none;
@@ -468,11 +503,9 @@ section:nth-child(odd)  { background: var(--color-10); }
   display: flex;
   align-items: center;
   margin: 3rem auto 2rem auto;
-  max-width: 600px;
   width: 100%;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   border-radius: var(--radius-lg);
-  overflow: hidden;
 }
 
 .method-image::before {
@@ -527,11 +560,34 @@ section:nth-child(odd)  { background: var(--color-10); }
   .method-image { margin: 2rem 0; }
   .method-enhanced h2 { font-size: 2.2rem; }
 }
+@media (max-width: 900px) {
+  .method-layout {
+    grid-template-columns: 1fr 1.3fr;
+  }
 
+  .method-content {
+    text-align: center;
+  }
+
+  .method-content .header-underline {
+    margin: 1rem auto 2rem auto;
+  }
+}
 @media (max-width: 768px) {
   .method-enhanced { padding: 2rem var(--page-pad); }
   .method-dimensions { font-size: 0.95rem; }
   .method-enhanced h3 { font-size: 1.1rem; line-height: 1.6; }
+    .method-layout {
+    grid-template-columns: 1fr 1.3fr;
+  }
+
+  .method-content {
+    text-align: center;
+  }
+
+  .method-content .header-underline {
+    margin: 1rem auto 2rem auto;
+  }
 }
 
 /* =========================

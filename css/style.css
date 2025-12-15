@@ -111,6 +111,13 @@ body {
   font-style: normal;
   font-display: swap;
 }
+@font-face{
+  font-family: "Arida-regular";
+  src: url('../assets/fonts/Arida_Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* =========================
    HEADINGS / UPPERCASE
@@ -130,7 +137,7 @@ h1,h2,h3,h4,h5,h6,
    ========================= */
 body, p, .service-features li, .about-intro, .testimonial-card p, .about-content p, .hero-subtitle,.section-header p,.method-dimensions,.mission-content p, .mission-content.fade-in p
 {
-    font-family: "Arida_Black", "CODE_Light", system-ui, sans-serif;
+    font-family: "Arida-regular", "CODE_Light", system-ui, sans-serif;
     font-weight: 300;
     font-size: 20px;
     text-transform:none;
@@ -138,7 +145,7 @@ body, p, .service-features li, .about-intro, .testimonial-card p, .about-content
 }
 .service-card p, .section-subtitle p 
 {
-    font-family: "Arida_Black", "CODE_Light", system-ui, sans-serif;
+    font-family: "Arida-regular", "CODE_Light", system-ui, sans-serif;
     font-weight: 400;
     font-size: 26px;
     text-transform:none;
@@ -155,7 +162,7 @@ body, p, .service-features li, .about-intro, .testimonial-card p, .about-content
    ========================= */
 .method-dimensions strong, .about-intro strong, .about-text strong, .testimonial-card cite strong, .mission-content p strong
 {
-    font-family: "Arida_Black", "CODE_Light", system-ui, sans-serif;
+    font-family: "Arida-regular", "CODE_Light", system-ui, sans-serif;
     font-weight: 600;
     font-size: 25px;
     text-transform:none;

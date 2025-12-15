@@ -32,7 +32,8 @@
   {
     "id": 10,
     "text": "I joined this programme to reduce my anxiety in competition and learn how to perform in a ‘flow state’. Breathing drills and visualisation helped me block out distractions and focus entirely on myself — eliminating the pressure.",
-    "author": "Christian"
+    "author": "Christian",
+    "photo": "../assets/images/testimonials/christian.jpeg"
   },
   {
     "id": 12,
@@ -61,7 +62,8 @@
   {
     "id": 20,
     "text": "Would I recommend this programme? A thousand percent, yes. In just a couple of months, I feel like a completely different athlete. If you’re struggling with the mental side — just give it a go. You’ll see improvements almost straight away.",
-    "author": "Oliver"
+    "author": "Oliver",
+    "photo": "../assets/images/testimonials/oliver.jpeg" 
   },
   {
     "id": 21,

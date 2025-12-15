@@ -1040,7 +1040,7 @@ section:nth-child(odd)  { background: var(--color-10); }
 .social-links h4 {
     font-weight: 600;
     font-size: 1rem;
-    color: var(--color-10);
+    color: var(--color-6);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }

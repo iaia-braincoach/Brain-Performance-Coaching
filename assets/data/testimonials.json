@@ -1,48 +1,33 @@
 [
   {
-    "id": 1,
-    "text": "I would 100% recommend her to all athletes, brain training is a must and should not be neglected. As athletes we need to train both our minds and bodies.",
-    "author": "Kieran"
-  },
-  {
-    "id": 2,
-    "text": "Since using these strategies, I’ve noticed an improvement in my mindset. Mentally, I feel stronger, and I’ve seen how this has translated into physical development in training as well.",
-    "author": "Kieran"
-  },
-  {
     "id": 3,
     "text": "Before working with Iaia, I struggled with confidence in competition and wasn’t clear on my long-term goals. From the first session, everything shifted. The goal-setting work was massive for me. Mapping out short, medium, and long-term goals made me look at my journey in a whole new way.",
-    "author": "Kieran"
+    "author": "Kieran",
+    "photo": "../assets/images/testimonials/Kieran_Eland.jpeg"
   },
   {
     "id": 4,
     "text": "At first, I had my doubts. I didn’t know if it would make a difference at all. But I gave it a go and it’s been an exciting experience since. The coach was amazing: professional yet comforting, like talking to a friend. She personalised everything to fulfil my needs.",
-    "author": "Hagen"
-  },
-  {
-    "id": 5,
-    "text": "Before the program, I had big goals… but not the full belief that I would achieve them, an endeavour I knew would lead to failure. Now I’ve completely shifted. I have full trust in my abilities and faith to realise my dreams.",
-    "author": "Hagen"
+    "author": "Hagen",
+    "photo": "../assets/images/testimonials/HAGEN_MZEE.jpeg"
   },
   {
     "id": 6,
     "text": "Since working with Iaia, I’ve seen a complete shift in how I think and train. This coaching didn’t feel like psychology, it felt like someone who truly understands how athletes think. That trust helped me fully engage.",
-    "author": "Kris"
+    "author": "Kris",
+    "photo": "../assets/images/testimonials/KRISTIAN_SAMWELL_NASH.jpeg"  
   },
   {
     "id": 7,
     "text": "I learned how negative thoughts can lead to negative results — but flipping them creates the exact opposite. That really stuck with me. I aimed for 9.3s — but after applying what I’d learned, I ran 9.1s. That was a huge win for me.",
-    "author": "Jennifer"
-  },
-  {
-    "id": 8,
-    "text": "It’s made a real difference in how calm and grounded I feel before training — or even tackling challenges outside of sport. If you’re unsure like I was, I’d say just go for it, be open-minded. I’m honestly still surprised how much difference this made in such a short time.",
-    "author": "Jennifer"
+    "author": "Jennifer",
+    "photo": "../assets/images/testimonials/jennifer_eduwu.jpeg" 
   },
   {
     "id": 9,
     "text": "I’ve dealt with injuries throughout my career, and that really affected my confidence. I wasn’t always sure how to handle setbacks or push through fear. Now, I feel more confident — and most importantly, I’m excited to race again rather than fearful.",
-    "author": "Dominic"
+    "author": "Dominic",
+    "photo": "../assets/images/testimonials/DOMINIC_SMITH_RAY.jpeg"
   },
   {
     "id": 10,
@@ -50,49 +35,28 @@
     "author": "Christian"
   },
   {
-    "id": 11,
-    "text": "Since using these strategies, I’ve noticed an improvement in my mindset. Mentally, I feel stronger, and I’ve seen how this has translated into physical development in training as well.",
-    "author": "Aaliyah"
-  },
-  {
     "id": 12,
     "text": "For the first time, I felt safe enough to speak up, and that changed everything. I realised how much my thoughts were controlling my performance. That awareness was one of my biggest breakthroughs.",
-    "author": "Aaliyah"
-  },
-  {
-    "id": 13,
-    "text": "We worked on visualisation, self-talk, and journaling — these helped me set clear, realistic goals and map out how to get there. One of the most impactful tools was the mental reset drill. I used it before physio, training, or whenever negative thoughts crept in.",
-    "author": "Constance"
-  },
-  {
-    "id": 14,
-    "text": "When I raced, I followed the exact plan I had in my mind. That connection made a huge difference. I finally broke 22 seconds in the 200m, a goal I’ve had since 2022.",
-    "author": "Theo"
+    "author": "Aaliyah",
+    "photo": "../assets/images/testimonials/AALIYAH_BROWN.jpeg"     
   },
   {
     "id": 15,
     "text": "Iaia didn’t just give me tools — she helped me use them in the moments that matter. If you’re thinking about it, go in with an open mind. You’ll unlock a side of yourself that’s been waiting to come out.",
-    "author": "Theo"
-  },
-  {
-    "id": 16,
-    "text": "I’d been struggling with self-doubt, anxiety, and recurring injuries. I came in with no expectations. But from the very first session, I knew I was in the right place. I finally felt like someone truly understood what I was going through.",
-    "author": "Isaac"
+    "author": "Theo",
+    "photo": "../assets/images/testimonials/theo_danquah.jpeg" 
   },
   {
     "id": 17,
     "text": "This programme helped me rebuild from the inside out. For the first time in a long time, I feel back in control — mentally stronger than ever, more present, more resilient, more confident. And finally excited for what’s ahead.",
-    "author": "Isaac"
+    "author": "Isaac",
+    "photo": "../assets/images/testimonials/isaac_osei_tutu.jpeg" 
   },
   {
     "id": 18,
     "text": "Now it’s easier to get into the mindset I need. This programme helped me build a mental toolkit and I’ll keep using. It gave me something solid. And for the first time, I feel prepared before the race begins.",
-    "author": "Alvin"
-  },
-  {
-    "id": 19,
-    "text": "Almost immediately, I started seeing results. I PB’d by over a second in the 400m — and qualified for the semi-finals at nationals. That was something I honestly didn’t believe I could do. This gave me confidence, belief, and the tools to perform at the level I always should’ve been at.",
-    "author": "Oliver"
+    "author": "Alvin",
+    "photo": "../assets/images/testimonials/ALVIN_LIU.jpeg" 
   },
   {
     "id": 20,
@@ -102,21 +66,25 @@
   {
     "id": 21,
     "text": "The biggest shift came from visualisation. Learning to see and feel the athlete I wanted to become changed everything. It’s not just a mental trick — it’s what helped me run two PBs in one day. That’s when I realised how powerful this mental work really is.",
-    "author": "Eli"
+    "author": "Eli",
+    "photo": "../assets/images/testimonials/eli_Onyewu.jpeg" 
   },
   {
     "id": 22,
     "text": "I’ve noticed a real shift in my mindset and performance. I’m more focused and calm, especially during races. In sprinting, staying relaxed and fluid is everything and by being mentally centred, my performance naturally got better. That’s been one of the biggest transformations for me.",
-    "author": "Derek"
+    "author": "Derek",
+    "photo": "../assets/images/testimonials/derek_Kinlock.jpeg" 
   },
   {
     "id": 23,
     "text": "What I liked most about Iaia’s approach was that it was practical and structured. I’d definitely recommend this programme to other athletes, because I’ve seen such big improvements in a short period of time. I’ve got real proof that it works and if it’s worked for me, it can work for them too.",
-    "author": "Jessica"
+    "author": "Jessica",
+    "photo": "../assets/images/testimonials/Jessica_Calderbank.jpeg" 
   },
   {
     "id": 24,
     "text": "I used to have a lot of negative thoughts and self-criticism, and learning how to quiet that inner noise made a huge difference. What I appreciated most about Iaia was the personal touch. She really gives her all and makes it feel completely tailored to you, rather than a generic programme. That focus on the individual makes a big difference.",
-    "author": "Kieran"
+    "author": "Kieran",
+    "photo": "../assets/images/testimonials/kieran_shah.jpeg"  
   }
 ]

@@ -83,41 +83,37 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ============================
    3. Testimonials Section (FIXED)
    ============================ */
-   async function loadTestimonials() {
-    const response = await fetch('assets/data/testimonials.json');
-    const testimonials = await response.json();
+  async function loadTestimonials() {
+    try {
+      const response = await fetch('assets/data/testimonials.json');
+      if (!response.ok) throw new Error('Failed to load testimonials.json');
+      const testimonials = await response.json();
 
-    const wrapper = document.getElementById('testimonial-wrapper');
+      const wrapper = document.getElementById('testimonial-wrapper');
+      wrapper.innerHTML = ''; // Clear wrapper before adding slides
 
-    testimonials.forEach(item => {
-      const slide = document.createElement('article');
-      slide.classList.add('testimonial__card', 'swiper-slide');
+      testimonials.forEach(item => {
+        const slide = document.createElement('article');
+        slide.classList.add('testimonial__card', 'swiper-slide');
 
-      slide.innerHTML = `
-        <img src="assets/img/avatar-default.png" alt="${item.author}" class="testimonial__img">
+        // Resolve image path relative to current HTML page
+        const imgSrc = new URL(item.photo, window.location.href).href;
 
-        <h3 class="testimonial__name">${item.author}</h3>
-        <!--
-        <div class="testimonial__rating">
-          <div class="testimonial__stars">
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-            <i class="ri-star-fill"></i>
-          </div>
-          <h3 class="testimonial__number">5.0</h3>
-        </div>
-        -->
-        <p class="testimonial__description">
-          ${item.text}
-        </p>
-      `;
+        slide.innerHTML = `
+          <img src="${imgSrc}" alt="${item.author}" class="testimonial__img" onerror="this.onerror=null;this.src='assets/images/Logo.png';">
+          <h3 class="testimonial__name">${item.author}</h3>
+          <p class="testimonial__description">
+            ${item.text}
+          </p>
+        `;
 
-      wrapper.appendChild(slide);
-    });
+        wrapper.appendChild(slide);
+      });
 
-    initSwiper();
+      initSwiper();
+    } catch (error) {
+      console.error('Error loading testimonials:', error);
+    }
   }
 
   function initSwiper() {
@@ -154,7 +150,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Load testimonials on page load
   loadTestimonials();
+
 
   // Debug: peek at raw file content for quick troubleshooting
   fetch('./assets/data/testimonials.json')

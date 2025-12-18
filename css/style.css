@@ -852,7 +852,7 @@ section:nth-child(odd)  { background: var(--color-10); }
   max-width: 600px;
   margin: 0 auto;
   background: linear-gradient(180deg, rgba(168,122,200,0.05), var(--color-10));
-  padding: 3rem 2rem;
+  padding: 4rem var(--page-pad);
   border-radius: 16px;
 }
 .section-header {

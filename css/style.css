@@ -153,7 +153,7 @@ body, p, .service-features li, .about-intro, .testimonial-card p, .about-content
 }
 
 .footer-content p, .footer-content a {
-    font-family: "CODE_Light", system-ui, sans-serif;
+    font-family: "Arida-regular", "CODE_Light", system-ui, sans-serif;
     font-size: 14px;
     font-weight: 300;
 }
@@ -1484,6 +1484,147 @@ h1, h2, h3, h4, h5, h6,
 .hero-title, .contact-form h3, .about-text strong {
     color: var(--color-6);
     text-transform: uppercase;
+}
+
+/* =========================
+   COOKIE BANNER
+   ========================= */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-12);
+    color: var(--color-10);
+    padding: 1rem;
+    box-shadow: 0 -4px 12px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 4px solid var(--color-6);
+}
+
+.cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cookie-content p {
+    margin-bottom: 1rem;
+    color: var(--color-10);
+    font-size: var(--fs-body);
+    line-height: 1.5;
+}
+
+.cookie-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cookie-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--fs-body-sm);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+}
+
+.cookie-btn.accept {
+    background: var(--color-6);
+    color: var(--color-10);
+}
+
+.cookie-btn.accept:hover {
+    background: var(--color-7);
+}
+
+.cookie-btn.reject {
+    background: var(--color-1);
+    color: var(--color-10);
+}
+
+.cookie-btn.reject:hover {
+    background: var(--color-2);
+}
+
+.cookie-btn.manage {
+    background: transparent;
+    color: var(--color-10);
+    border: 2px solid var(--color-10);
+}
+
+.cookie-btn.manage:hover {
+    background: var(--color-10);
+    color: var(--color-12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cookie-content {
+        text-align: left;
+    }
+    .cookie-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .cookie-btn {
+        width: 100%;
+    }
+}
+
+/* =========================
+   FOOTER LINKS
+   ========================= */
+.footer-links {
+    margin-top: 0.5rem;
+    font-size: var(--fs-body-sm);
+}
+
+.footer-links a {
+    color: var(--color-6);
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+    color: var(--color-7);
+    text-decoration: underline;
+}
+
+/* Lower font size for h2 on policy pages */
+#terms h2, #privacy h2, #cookies h2 {
+    font-size: 1.5rem;
+}
+
+/* Smaller headers in cookie modal */
+#cookie-modal h3 {
+    font-size: 1.5rem;
+}
+
+#cookie-modal h4 {
+    font-size: 1.25rem;
+}
+
+/* Custom bullet points for policy pages */
+#terms ul li, #privacy ul li, #cookies ul li {
+    list-style: none;
+}
+
+#terms ul li::before, #privacy ul li::before, #cookies ul li::before {
+    content: "";
+    background-image: url('../assets/images/Logo.png');
+    background-size:cover;
+    display: inline-block;
+    width: 34px;
+    height: 25px;
+    margin-right: 8px;
 }
 
 /* =========================

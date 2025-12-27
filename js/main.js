@@ -333,4 +333,240 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     window.applyHeaderPadding = applyHeaderPadding;
   })();
+
+  /* ============================
+   8. Cookie Banner (Improved)
+   ============================ */
+  (() => {
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('accept-cookies');
+    const rejectBtn = document.getElementById('reject-cookies');
+    const manageBtn = document.getElementById('manage-cookies');
+    const closeBtn = document.getElementById('close-banner'); // Assuming a close button
+
+    // Check if consent already given
+    const preferences = JSON.parse(localStorage.getItem('cookie-preferences'));
+    if (preferences) {
+      // If already consented, hide banner and apply settings
+      banner.style.display = 'none';
+      if (preferences.performance === 'allow' && window.gtag) {
+        gtag('consent', 'update', {
+          analytics_storage: 'granted'
+        });
+      }
+      return;
+    }
+
+    // Show banner with animation
+    banner.style.display = 'block';
+    banner.style.opacity = '1';
+    setTimeout(() => {
+      banner.style.transition = 'opacity 0.5s ease';
+      banner.style.opacity = '1';
+    }, 100);
+
+    // Accept all cookies
+    acceptBtn.addEventListener('click', () => {
+      const prefs = {
+        performance: 'allow',
+        personalised: 'allow',
+        advertising: 'allow',
+        profile: 'allow'
+      };
+      localStorage.setItem('cookie-preferences', JSON.stringify(prefs));
+      hideBanner();
+      // Enable analytics
+      if (window.gtag) {
+        gtag('consent', 'update', {
+          analytics_storage: 'granted'
+        });
+      }
+    });
+
+    // Reject cookies (essential only)
+    rejectBtn.addEventListener('click', () => {
+      const prefs = {
+        performance: 'deny',
+        personalised: 'deny',
+        advertising: 'deny',
+        profile: 'deny'
+      };
+      localStorage.setItem('cookie-preferences', JSON.stringify(prefs));
+      hideBanner();
+      // Disable non-essential
+      if (window.gtag) {
+        gtag('consent', 'update', {
+          analytics_storage: 'denied'
+        });
+      }
+    });
+
+    // Manage cookies - open modal
+    manageBtn.addEventListener('click', () => {
+      showCookieModal();
+    });
+
+    // Function to show cookie management modal
+    function showCookieModal() {
+      // Create modal if it doesn't exist
+      let modal = document.getElementById('cookie-modal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'cookie-modal';
+        modal.innerHTML = `
+          <div class="modal-backdrop" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;">
+            <div class="modal-content" style="background: white; padding: 2rem; border-radius: 8px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; position: relative;">
+              <button class="modal-close" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">&times;</button>
+              <h3 style="margin-top: 0;">Data improves your experience</h3>
+              <p>In order to enhance your experience across our platforms and show you more relevant information, we use cookies and similar technologies, both owned and third party owned, as well as data sent directly from our servers. You can make changes at any time by visiting "Privacy" in Settings or by visiting "Privacy & Cookie Settings" at the bottom of our site.</p>
+              <p>For more information, see our <a href="assets/pages/privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="assets/pages/cookies-policy.html" target="_blank">Cookies Policy</a>.</p>
+              
+              <form id="cookie-form">
+                <div style="margin: 1rem 0;">
+                  <h4>Strictly necessary (always on)</h4>
+                  <p>Enables core functionality to power your language, location and shopping bag. Also supports security, network management and accessibility.</p>
+                  <input type="checkbox" id="necessary-cookies" checked disabled>
+                </div>
+                
+                <div style="margin: 1rem 0;">
+                  <h4>Performance & analytics</h4>
+                  <p>Allows use of behavioural data to optimise performance, review how you interact with our sites and apps, and improve experiences.</p>
+                  <label>
+                    <input type="radio" name="performance" value="allow" id="performance-allow"> Allow data for improved experiences
+                  </label><br>
+                  <label>
+                    <input type="radio" name="performance" value="deny" id="performance-deny"> Do not allow data for improved experiences
+                  </label>
+                </div>
+                
+                <div style="margin: 1rem 0;">
+                  <h4>Personalised experiences</h4>
+                  <p>Allows use of behavioural data, using cookies and other technologies, to improve your experience and provide relevant content on our platforms and in communications.</p>
+                  <label>
+                    <input type="radio" name="personalised" value="allow" id="personalised-allow"> Allow personalised experiences
+                  </label><br>
+                  <label>
+                    <input type="radio" name="personalised" value="deny" id="personalised-deny"> Do not allow personalised experiences
+                  </label>
+                </div>
+                
+                <div style="margin: 1rem 0;">
+                  <h4>Personalised advertising</h4>
+                  <p>Allows sharing of behavioural data with advertising partners. This data is used to enhance and report on the personalised advertising experience on partner sites.</p>
+                  <p><a href="assets/pages/cookies-policy.html#personalised-advertising" target="_blank">Learn more about personalised advertising</a></p>
+                  <label>
+                    <input type="radio" name="advertising" value="allow" id="advertising-allow"> Allow behavioural data sharing
+                  </label><br>
+                  <label>
+                    <input type="radio" name="advertising" value="deny" id="advertising-deny"> Do not allow behavioural data sharing
+                  </label>
+                </div>
+                
+                <div style="margin: 1rem 0;">
+                  <h4>Profile-based personalised advertising</h4>
+                  <p>Allows sharing of your email address and phone number with advertising partners to personalise advertising based on your interests and measure the effectiveness of advertising on partner sites.</p>
+                  <p><a href="assets/pages/cookies-policy.html#profile-based-advertising" target="_blank">Learn more about profile-based advertising</a></p>
+                  <label>
+                    <input type="radio" name="profile" value="allow" id="profile-allow"> Allow profile-based data sharing
+                  </label><br>
+                  <label>
+                    <input type="radio" name="profile" value="deny" id="profile-deny"> Do not allow profile-based data sharing
+                  </label>
+                </div>
+                
+                <div style="margin-top: 2rem; text-align: center;">
+                  <button type="button" id="confirm-choices" style="background: var(--color-6); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-right: 1rem;">Confirm Choices</button>
+                  <button type="button" id="accept-all" style="background: var(--color-7); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer;">Accept All</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        `;
+        document.body.appendChild(modal);
+      }
+
+      modal.style.display = 'flex';
+
+      // Load current preferences
+      const preferences = JSON.parse(localStorage.getItem('cookie-preferences')) || {
+        performance: 'allow',
+        personalised: 'allow',
+        advertising: 'allow',
+        profile: 'allow'
+      };
+      document.getElementById('performance-' + preferences.performance).checked = true;
+      document.getElementById('personalised-' + preferences.personalised).checked = true;
+      document.getElementById('advertising-' + preferences.advertising).checked = true;
+      document.getElementById('profile-' + preferences.profile).checked = true;
+
+      // Event listeners
+      const confirmBtn = document.getElementById('confirm-choices');
+      const acceptAllBtn = document.getElementById('accept-all');
+      const cancelBtn = document.getElementById('cancel-modal');
+      const closeBtn = modal.querySelector('.modal-close');
+
+      const closeModal = () => {
+        modal.style.display = 'none';
+      };
+
+      const savePreferences = (prefs) => {
+        localStorage.setItem('cookie-preferences', JSON.stringify(prefs));
+        localStorage.setItem('cookie-consent', prefs.performance === 'allow' ? 'accepted' : 'rejected');
+        if (window.gtag) {
+          gtag('consent', 'update', {
+            analytics_storage: prefs.performance === 'allow' ? 'granted' : 'denied'
+          });
+        }
+        closeModal();
+        banner.style.display = 'none';
+      };
+
+      confirmBtn.onclick = () => {
+        const prefs = {
+          performance: document.querySelector('input[name="performance"]:checked').value,
+          personalised: document.querySelector('input[name="personalised"]:checked').value,
+          advertising: document.querySelector('input[name="advertising"]:checked').value,
+          profile: document.querySelector('input[name="profile"]:checked').value
+        };
+        savePreferences(prefs);
+      };
+
+      acceptAllBtn.onclick = () => {
+        const prefs = {
+          performance: 'allow',
+          personalised: 'allow',
+          advertising: 'allow',
+          profile: 'allow'
+        };
+        // Set radios to allow
+        ['performance-allow', 'personalised-allow', 'advertising-allow', 'profile-allow'].forEach(id => {
+          document.getElementById(id).checked = true;
+        });
+        savePreferences(prefs);
+      };
+
+      cancelBtn.onclick = closeModal;
+      closeBtn.onclick = closeModal;
+
+      // Close on backdrop click
+      modal.onclick = (e) => {
+        if (e.target === modal) closeModal();
+      };
+    }
+
+    // Close banner (optional, treat as reject)
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        localStorage.setItem('cookie-consent', 'rejected');
+        hideBanner();
+      });
+    }
+
+    function hideBanner() {
+      banner.style.opacity = '0';
+      setTimeout(() => {
+        banner.style.display = 'none';
+      }, 500);
+    }
+  })();
 });

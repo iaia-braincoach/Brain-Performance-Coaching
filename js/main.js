@@ -569,4 +569,90 @@ document.addEventListener('DOMContentLoaded', function () {
       }, 500);
     }
   })();
+
+  /* ============================
+   9. Using Cookie Preferences Elsewhere
+   ============================ */
+  (() => {
+    // Function to get current cookie preferences
+    function getCookiePreferences() {
+      try {
+        const prefs = JSON.parse(localStorage.getItem('cookie-preferences'));
+        return prefs || {}; // Return empty object if none set
+      } catch (error) {
+        console.error('Error retrieving cookie preferences:', error);
+        return {};
+      }
+    }
+
+    // Example: Conditionally load Google Analytics based on performance preference
+    const prefs = getCookiePreferences();
+    if (prefs.performance === 'allow') {
+      // Load Google Analytics script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q'; // Replace with your GA ID
+      document.head.appendChild(script);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+        gtag('config', 'G-PM4JP6081Q'); // Replace with your GA ID
+
+      console.log('Google Analytics loaded (performance allowed).');
+    } else {
+      console.log('Google Analytics not loaded (performance denied).');
+    }
+
+    // Example: Show personalized content based on personalised preference
+    if (prefs.personalised === 'allow') {
+      // Show a dismissible pop-up instead of adding to the page
+      showPersonalizedPopup();
+      console.log('Personalized pop-up shown.');
+    } else {
+      console.log('Personalized content not shown (personalised denied).');
+    }
+
+    // Function to show personalized pop-up
+    function showPersonalizedPopup() {
+      // Create pop-up if it doesn't exist
+      let popup = document.getElementById('personalized-popup');
+      if (!popup) {
+        popup = document.createElement('div');
+        popup.id = 'personalized-popup';
+        popup.innerHTML = `
+          <div style="position: fixed; top: 20px; right: 20px; background: var(--color-5); border: 2px solid var(--color-6); border-radius: 8px; padding: 1rem; box-shadow: var(--shadow-soft); z-index: 10000; max-width: 300px; font-size: 0.9rem; color: var(--color-12);">
+            <button id="close-popup" style="position: absolute; top: 5px; right: 5px; background: none; border: none; font-size: 1.2rem; cursor: pointer; color: var(--color-12);">&times;</button>
+            <p style="margin: 0;">Welcome back! Based on your preferences, we've personalized your experience.</p>
+          </div>
+        `;
+        document.body.appendChild(popup);
+
+        // Add close functionality
+        document.getElementById('close-popup').addEventListener('click', () => {
+          popup.style.display = 'none';
+        });
+
+        // Auto-hide after 5 seconds
+        setTimeout(() => {
+          if (popup.style.display !== 'none') {
+            popup.style.display = 'none';
+          }
+        }, 5000);
+      }
+
+      popup.style.display = 'block';
+    }
+
+    // Example: Load ad scripts based on advertising preference
+    if (prefs.advertising === 'allow') {
+      // Simulate loading an ad script (replace with real ad network)
+      const adScript = document.createElement('script');
+      adScript.src = 'https://example.com/ad-script.js'; // Replace with actual ad script URL
+      document.head.appendChild(adScript);
+      console.log('Ad scripts loaded (advertising allowed).');
+    } else {
+      console.log('Ad scripts not loaded (advertising denied).');
+    }
+  })();
 });

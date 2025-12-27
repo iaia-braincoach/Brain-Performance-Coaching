@@ -105,5 +105,7 @@ This project is proprietary. All rights reserved.
 ## Contact
 For inquiries about the coaching services, contact Iaia Colella via the website's contact form or email.
 
+Link: `http://brainperformancecoaching.com/`
+
 ---
 *Built with ❤️ for peak mental performance.*

@@ -737,14 +737,14 @@ section:nth-child(odd)  { background: var(--color-10); }
   align-items: center;
   overflow: hidden;
 }
-
+/*add border_box */
 .testimonial__swiper {
   padding-bottom: 6rem;
   max-width: 760px;
   width: 100%;
   margin: 0 auto;
 }
-
+/* remove the h2 */ 
 .testimonial__title h2{
   text-align: center;
   margin-top: 1rem;
@@ -1228,7 +1228,7 @@ footer {
     right: calc(50% - 2.75rem);
   }
 }
-
+/* move above the 768px section to make it stop the conflic between the responsove breakpoint */
 @media (max-width: 900px) {
   .nav-links {
     position:fixed;

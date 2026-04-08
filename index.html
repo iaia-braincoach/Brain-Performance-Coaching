@@ -119,14 +119,8 @@ nav {
 .about { padding: 112px 80px; background: var(--bg2); }
 .about-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
 .about-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(95,54,133,0.14); }
-.about-photo img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  margin: 0 auto;
-}.about-mission { margin-top: 32px; padding: 28px 32px; background: var(--bg3); border-radius: 12px; border-left: 3px solid var(--purple); }
+.about-photo img { width: 100%; display: block; object-fit: cover; }
+.about-mission { margin-top: 32px; padding: 28px 32px; background: var(--bg3); border-radius: 12px; border-left: 3px solid var(--purple); }
 .about-mission-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
 .about-mission-text { font-size: 16px; line-height: 1.7; color: var(--black); font-weight: 500; }
 .about-mission-text strong { color: var(--purple); }
@@ -243,7 +237,7 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 <nav id="mainNav">
   <div class="nav-left">
     <a href="#" class="nav-brand">
-      <img src="assets/logo-brain.png" alt="Brain Performance Coaching"><span class="nav-brand-name">Brain Performance Coaching</span>
+      <img src="assets/logo-brain.png">Brain Performance Coaching>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About Me</a></li>
@@ -283,7 +277,7 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
   <div class="about-inner">
     <div class="about-photo">
       <!-- ⚠️ Upload your photo to GitHub assets/images/ and update this filename -->
-<img src="assets/iaia.jpg" alt="Iaia Colella – Brain Performance Coach">
+      <img src="assets/iaia-profile.heic" alt="Iaia Colella – Brain Performance Coach">
     </div>
     <div class="about-content">
       <span class="section-tag">About Me</span>
@@ -320,7 +314,8 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
       <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" target="_blank">Take the Assessment →</a>
     </div>
     <div class="method-visual">
-    <img src="assets/8_D_Assessment.black.png" alt="8 Dimension Assessment Wheel">
+      <!-- ⚠️ Upload assessment-wheel.jpg from landing page assets to GitHub assets/images/ -->
+      <img src="assets/assessment-wheel.jpg"> alt="8-Dimension Method Wheel">
     </div>
   </div>
 </section>
@@ -520,14 +515,14 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 <!-- ═══ FOOTER ═════════════════════════════════════════ -->
 <footer>
   <div class="footer-brand">
-<img src="assets/logo-brain.png" alt="Brain Performance Coaching">
+    <img src="assets/logo-brain.png"> alt="Brain Performance Coaching">
   </div>
   <p class="footer-copy">© 2025 Brain Performance Coaching. All rights reserved.</p>
- <div class="footer-links">
-  <a href="website/privacy.html" class="footer-link">Privacy Policy</a>
-  <a href="website/terms.html" class="footer-link">Terms & Conditions</a>
-  <a href="website/cookies.html" class="footer-link">Cookies Policy</a>
-</div>
+  <div class="footer-links">
+    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+    <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+    <a href="cookies.html" class="footer-link">Cookies Policy</a>
+  </div>
 </footer>
 
 <script>

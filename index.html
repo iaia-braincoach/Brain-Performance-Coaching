@@ -1,354 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <title>Brain Performance Coaching | Train your Brain</title>
-    <link rel="preload" href="assets/fonts/CODE_Bold.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="assets/fonts/CODE_Light.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PM4JP6081Q');
-    </script>
-</head>    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brain Performance Coaching | Train Your Brain</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PM4JP6081Q"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PM4JP6081Q');</script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --purple:       #5F3685;
+  --purple-light: #7B4BA8;
+  --purple-dark:  #4A2869;
+  --purple-dim:   rgba(95,54,133,0.10);
+  --gold:         #E8B84B;
+  --bg:           #F8F7FC;
+  --bg2:          #FFFFFF;
+  --bg3:          #F0EDF8;
+  --black:        #1E1A2E;
+  --muted:        #6B6880;
+  --faint:        rgba(95,54,133,0.12);
+  --font: 'Plus Jakarta Sans', sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--black); font-family: var(--font); font-weight: 300; overflow-x: hidden; line-height: 1.6; }
+
+/* ── BUTTONS ─────────────────────────────────────────── */
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--black);
+  font-family: var(--font); font-size: 13px; font-weight: 600;
+  padding: 11px 26px; border-radius: 6px; text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s; border: none; cursor: pointer;
+}
+.btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-gold-lg {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gold); color: var(--black);
+  font-family: var(--font); font-size: 15px; font-weight: 600;
+  padding: 16px 40px; border-radius: 7px; text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s; border: none; cursor: pointer; width: fit-content;
+}
+.btn-gold-lg:hover { opacity: 0.88; transform: translateY(-2px); }
+
+/* ── NAV ─────────────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 64px;
+  background: rgba(248,247,252,0.94); backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--faint); transition: box-shadow 0.3s;
+}
+.nav-left { display: flex; align-items: center; gap: 48px; }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-brand img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--black); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--purple); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+/* ── MOBILE MENU ─────────────────────────────────────── */
+.mobile-menu {
+  display: none; position: fixed; inset: 0; z-index: 99;
+  background: rgba(248,247,252,0.98); backdrop-filter: blur(20px);
+  flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 22px; font-weight: 600; color: var(--black); text-decoration: none; transition: color 0.2s; }
+.mobile-menu a:hover { color: var(--purple); }
+.mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; font-size: 28px; cursor: pointer; color: var(--black); }
+
+/* ── HERO (centered, no photo) ───────────────────────── */
+.hero {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 120px 40px 80px; text-align: center;
+  position: relative; overflow: hidden; background: var(--bg);
+}
+.hero::before {
+  content: ''; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 900px; height: 900px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(95,54,133,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.hero-content { max-width: 740px; position: relative; z-index: 1; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--purple); margin-bottom: 28px; justify-content: center;
+}
+.eyebrow::before { content: ''; width: 28px; height: 1.5px; background: var(--purple); }
+.eyebrow::after  { content: ''; width: 28px; height: 1.5px; background: var(--purple); }
+.hero-title       { font-size: clamp(42px, 5vw, 72px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em; color: var(--black); margin-bottom: 8px; }
+.hero-title-accent{ font-size: clamp(42px, 5vw, 72px); font-weight: 700; line-height: 1.06; letter-spacing: -0.03em; color: var(--purple); margin-bottom: 32px; }
+.hero-sub  { font-size: 18px; line-height: 1.8; color: var(--muted); max-width: 500px; margin: 0 auto 40px; }
+.hero-note { font-size: 12px; color: var(--muted); margin-top: 16px; }
+
+/* ── STATS ───────────────────────────────────────────── */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--purple); }
+.stat { padding: 36px 48px; border-right: 1px solid rgba(255,255,255,0.12); text-align: center; }
+.stat:last-child { border-right: none; }
+.stat-num { font-size: 32px; font-weight: 700; color: var(--gold); letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 4px; }
+.stat-label { font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 400; }
+
+/* ── SHARED ──────────────────────────────────────────── */
+.section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; display: block; }
+.section-title { font-size: clamp(28px, 3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--black); margin-bottom: 20px; }
+.section-title .accent { color: var(--purple); }
+.body-text { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
+.body-text strong { color: var(--black); font-weight: 600; }
+
+/* ── ABOUT ───────────────────────────────────────────── */
+.about { padding: 112px 80px; background: var(--bg2); }
+.about-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
+.about-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(95,54,133,0.14); }
+.about-photo img { width: 100%; display: block; object-fit: cover; }
+.about-mission { margin-top: 32px; padding: 28px 32px; background: var(--bg3); border-radius: 12px; border-left: 3px solid var(--purple); }
+.about-mission-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
+.about-mission-text { font-size: 16px; line-height: 1.7; color: var(--black); font-weight: 500; }
+.about-mission-text strong { color: var(--purple); }
+
+/* ── METHOD ──────────────────────────────────────────── */
+.method { padding: 112px 80px; background: var(--bg); }
+.method-inner { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+.method-visual { background: var(--bg2); border-radius: 16px; padding: 40px; border: 1.5px solid var(--faint); display: flex; align-items: center; justify-content: center; position: sticky; top: 100px; }
+.method-visual img { width: 100%; max-width: 380px; display: block; }
+.dims { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 28px 0 36px; }
+.dim { background: var(--bg2); border: 1.5px solid var(--faint); border-radius: 9px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
+.dim:hover { border-color: rgba(95,54,133,0.25); }
+.dim-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+.dim-name { font-size: 13px; font-weight: 500; color: var(--black); }
+
+/* ── SERVICES (all equal) ────────────────────────────── */
+.services { padding: 112px 80px; background: var(--bg2); }
+.services-header { max-width: 640px; margin-bottom: 56px; }
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.service-card { background: var(--bg); border: 1.5px solid var(--faint); border-radius: 14px; padding: 40px 36px; transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s; }
+.service-card:hover { border-color: var(--purple); box-shadow: 0 8px 32px rgba(95,54,133,0.1); transform: translateY(-2px); }
+.service-icon { font-size: 28px; margin-bottom: 20px; display: block; }
+.service-name { font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
+.service-desc { font-size: 14px; line-height: 1.75; color: var(--muted); }
+
+/* ── TESTIMONIALS ────────────────────────────────────── */
+.testimonials { padding: 112px 80px; background: var(--bg3); }
+.testi-header { margin-bottom: 56px; }
+.testi-carousel { overflow: hidden; }
+.testi-track { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(0.25,0.1,0.25,1); will-change: transform; }
+.testi-card { background: var(--bg2); border: 1.5px solid var(--faint); border-radius: 14px; padding: 32px; flex: 0 0 calc(33.333% - 16px); display: flex; flex-direction: column; }
+.testi-result-tag { display: inline-flex; align-items: center; background: var(--purple-dim); color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
+.testi-quote { font-size: 14px; line-height: 1.75; color: var(--muted); font-style: italic; flex: 1; margin-bottom: 20px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: var(--purple-dim); border: 2px solid var(--faint); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--purple); }
+.testi-name { font-size: 14px; font-weight: 600; color: var(--black); }
+.testi-sport { font-size: 12px; color: var(--muted); }
+.testi-controls { display: flex; align-items: center; gap: 12px; margin-top: 40px; }
+.testi-ctrl { width: 44px; height: 44px; border-radius: 50%; background: var(--bg2); border: 1.5px solid var(--faint); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 18px; font-family: var(--font); }
+.testi-ctrl:hover { border-color: var(--purple); background: var(--purple-dim); }
+.testi-dots { display: flex; gap: 6px; margin-left: 4px; }
+.testi-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--faint); cursor: pointer; transition: background 0.2s, transform 0.2s; }
+.testi-dot.active { background: var(--purple); transform: scale(1.3); }
+
+/* ── CONTACT ─────────────────────────────────────────── */
+.contact { padding: 112px 80px; background: var(--bg2); }
+.contact-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+.contact-cta { margin: 28px 0 36px; }
+.contact-detail { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 15px; color: var(--muted); }
+.contact-detail a { color: var(--purple); text-decoration: none; font-weight: 500; transition: opacity 0.2s; }
+.contact-detail a:hover { opacity: 0.75; }
+.contact-social { display: flex; gap: 12px; margin-top: 32px; }
+.social-link { width: 44px; height: 44px; border-radius: 50%; background: var(--bg3); border: 1.5px solid var(--faint); display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--purple); transition: background 0.2s, border-color 0.2s, color 0.2s; }
+.social-link:hover { background: var(--purple); color: white; border-color: var(--purple); }
+.social-link svg { width: 18px; height: 18px; fill: currentColor; }
+.contact-form { background: var(--bg); border: 1.5px solid var(--faint); border-radius: 16px; padding: 44px; }
+.form-group { margin-bottom: 24px; }
+.form-label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple); margin-bottom: 8px; }
+.form-input, .form-select, .form-textarea { width: 100%; padding: 12px 0; border: none; border-bottom: 2px solid var(--faint); background: transparent; font-family: var(--font); font-size: 15px; color: var(--black); outline: none; transition: border-color 0.2s; display: block; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-bottom-color: var(--purple); }
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(107,104,128,0.45); }
+.form-select { cursor: pointer; -webkit-appearance: none; }
+.form-textarea { resize: none; min-height: 90px; }
+.form-submit { width: 100%; padding: 16px; border-radius: 8px; background: var(--gold); color: var(--black); border: none; cursor: pointer; font-family: var(--font); font-size: 15px; font-weight: 700; transition: opacity 0.2s, transform 0.15s; margin-top: 8px; }
+.form-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+/* ── FINAL CTA ───────────────────────────────────────── */
+.final-cta { background: var(--purple); padding: 100px 80px; text-align: center; }
+.final-cta .section-tag { color: rgba(255,255,255,0.5); }
+.final-cta-title { font-size: clamp(26px, 3vw, 44px); font-weight: 700; line-height: 1.15; color: white; letter-spacing: -0.02em; max-width: 700px; margin: 16px auto 22px; }
+.final-cta-sub { font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.62); max-width: 480px; margin: 0 auto 40px; }
+
+/* ── FOOTER ──────────────────────────────────────────── */
+footer { background: var(--black); padding: 44px 80px; display: flex; justify-content: space-between; align-items: center; }
+.footer-brand img { height: 28px; width: auto; filter: brightness(10); }
+.footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+.footer-links { display: flex; gap: 24px; }
+.footer-link { font-size: 13px; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-link:hover { color: white; }
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  nav { padding: 16px 24px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .hero { padding: 100px 28px 60px; }
+  .stats { grid-template-columns: 1fr; }
+  .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 24px; }
+  .about, .method, .services, .testimonials, .contact { padding: 72px 28px; }
+  .about-inner, .method-inner, .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+  .method-visual { position: static; }
+  .services-grid { grid-template-columns: 1fr; }
+  .testi-card { flex: 0 0 100%; }
+  .final-cta { padding: 80px 28px; }
+  footer { flex-direction: column; gap: 24px; padding: 36px 28px; text-align: center; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
 <body>
-    <header class="header-sticky">
-        <nav class="nav-main container">
-            <a class="brand" href="www.brainperformancecoaching.com">
-                <img src="assets/images/Logo_w_words.png" alt="Iaia Brain Coaching Logo" class="logo">
-            </a>
 
-            <ul id="sidemenu" class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#method">Method&trade;</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<!-- ═══ MOBILE MENU ══════════════════════════════════ -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#about" onclick="closeMobileMenu()">About Me</a>
+  <a href="#method" onclick="closeMobileMenu()">Method™</a>
+  <a href="#services" onclick="closeMobileMenu()">Services</a>
+  <a href="#testimonials" onclick="closeMobileMenu()">Testimonials</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" style="font-size:16px;" target="_blank">Take the Assessment →</a>
+</div>
 
-            <i class="fas fa-bars open-menu" onclick="toggleMenu()" aria-label="Open menu" role="button" tabindex="0"></i>
-        </nav>
-    </header>
+<!-- ═══ NAV ══════════════════════════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-left">
+    <a href="#" class="nav-brand">
+      <img src="assets/Logo_w_words.png" alt="Brain Performance Coaching">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#method">Method™</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <a href="https://8d.brainperformancecoaching.com" class="btn-gold" target="_blank">Take the Assessment →</a>
+  <button class="nav-toggle" onclick="openMobileMenu()" aria-label="Open menu">
+    <svg width="24" height="18" viewBox="0 0 24 18" fill="none"><line x1="0" y1="1" x2="24" y2="1" stroke="#1E1A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="9" x2="24" y2="9" stroke="#1E1A2E" stroke-width="2" stroke-linecap="round"/><line x1="0" y1="17" x2="24" y2="17" stroke="#1E1A2E" stroke-width="2" stroke-linecap="round"/></svg>
+  </button>
+</nav>
 
-    <!-- HERO SECTION: Enhanced with better typography & animation -->
-    <section id="hero" class="hero-enhanced">
-        <div class="hero-content">
-            <div class="hero-text">
-                <img src="assets/images/Logo.png" alt="Iaia Brain Coaching Logo" class="hero-logo">
-                <h1 class="hero-title fade-in-right" style="animation-delay: 0.4s;">
-                    Unlock your Peak Performance
-                </h1>
-                <p class="hero-subtitle fade-in-left" style="animation-delay: 0.4s;">
-                    TRAIN YOUR BRAIN
-                </p>
-                <a href="https://cal.com/maria-rosaria-colella-brain-coach-2rfnij/call?duration=30&overlayCalendar=true&month=2025-12&date=2025-12-09" class="cta-button fade-in-up" style="animation-delay: 0.4s;">
-                    Book Your Call Now
-                </a>
-            </div>
-        </div>
-       <!-- <div class="hero-scroll-indicator fade-in-up" style="animation-delay: 0.8s;">
-            <span>Scroll to explore</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>-->
-    </section>
+<!-- ═══ HERO (centered, no photo) ════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Mental Performance Coaching for Elite Athletes</div>
+    <h1 class="hero-title">Unlock your</h1>
+    <h1 class="hero-title-accent">Peak Performance</h1>
+    <p class="hero-sub">Train your brain to perform when it matters most.</p>
+    <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" target="_blank">Take the Assessment →</a>
+    <p class="hero-note">Used by national &amp; international athletes across 10+ sports</p>
+  </div>
+</section>
 
-    <!-- ABOUT SECTION: Alternating image/text layout -->
-    <section id="about" class="about-enhanced">
-        <div class="section-header fade-in">
-            <h2>About Me</h2>
-            <div class="header-underline"></div>
-        </div>
+<!-- ═══ STATS ══════════════════════════════════════════ -->
+<section class="stats">
+  <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Athletes Coached</div></div>
+  <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Sports &amp; Disciplines</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Science-Backed Methods</div></div>
+</section>
 
-        <div class="about-content">
-            <div class="about-image fade-in-left">
-                <img src="assets/images/iaia_portrait.jpg" alt="Iaia Brain Coach">
-                <div class="image-accent"></div>
-            </div>
-            
-            <div class="about-text fade-in-right">
-                <h3 class="about-name">Iaia Colella</h3>
-                <p class="about-role">Brain Performance Coach</p>
-            </br>
-                <p class="about-intro">
-                    I’m a Brain Performance Coach with a background in psychology and cognitive neuroscience. I help athletes train their brain with structure and intention, so they can perform with confidence and consistency.
-                </p>
-
-                <p class="about-intro">
-                    Before coaching, I spent years studying human behaviour, high-performance psychology and the mental processes that influence athletes under pressure. My approach is scientific, practical and personalised.
-                </p>
-
-                <p class="about-intro">
-                    I’ve supported athletes across multiple sports, helping them regulate emotions, build stronger confidence, stay focused, and bounce back from setbacks.
-                </p>
-
-                <p class="about-intro">
-                    I founded Brain Performance Coaching to give athletes the tool that was missing in traditional training: a structured way to develop strong mental skills for training, competition and life.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- MISSION SECTION: Full-width background image with overlay -->
-    <section id="mission" class="mission-enhanced">
-        <div class="mission-overlay">
-            <div class="mission-content fade-in">
-                <h2>My Mission</h2>
-                <div class="header-underline"></div>
-                <br>
-                <p>"My mission is to make brain training an essential part of every athlete's journey. I want athletes to recognise the power of training their mind with the same commitment they give to their body. Through this work, I empower athletes to perform with <strong>confidence</strong>, <strong>clarity</strong> and <strong>purpose</strong> — in sport and in life."</p>
-            </div>
-        </div>
-    </section>  
-
-    <!-- METHOD SECTION -->
-    <section id="method" class="method-enhanced">
-
-    <!-- CENTERED HEADER -->
-    <div class="method-header fade-in">
-        <h2>8-DIMENSION METHOD&trade;</h2>
-        <p class="section-subtitle">
-        A neuroscience-based framework to understand and strengthen your mental performance.
-        </p>
-        <div class="header-underline"></div>
+<!-- ═══ ABOUT + MISSION ════════════════════════════════ -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-photo">
+      <!-- ⚠️ Upload your photo to GitHub assets/images/ and update this filename -->
+      <img src="assets/iaia_portrait.jpg" alt="Iaia Colella — Brain Performance Coach">
     </div>
-    <!-- SPLIT LAYOUT -->
-    <div class="method-layout">
-        <!-- RIGHT: Text -->
-        <div class="method-content fade-in">
-            <p>
-                The 8-Dimension Assessment is the foundation of my coaching approach.
-            </p>
-            <p>
-                Developed from psychology and cognitive neuroscience, it evaluates eight key areas that influence performance:
-            </p>
-            <br>
-            <ul class="method-dimensions">
-                <li>Focus & Attention: Your ability to maintain mental concentration, especially under pressure or distractions.
-                </li>
-                <li>Emotional Regulation: Your capacity to manage emotional states effectively.</li>
-                <li>Confidence: The belief in your ability to perform well.</li>
-                <li>Self Talk: The internal dialogue that shapes thoughts and behaviour.</li>
-                <li>Motivation: Your inner drive to stay consistent and committed.</li>
-                <li>Self Awareness: Recognising patterns, triggers, and behaviours in real time.</li>
-                <li>State Management: Entering and sustaining optimal performance states.</li>
-                <li>Visualisation: Mentally practising and priming performance.</li>
-            </ul>
-        </div>
-                <!-- LEFT: Image -->
-        <div class="method-image fade-in-left">
-            <img src="assets/images/8_Dimension_Assessment_w_nbg.png" alt="8-Dimension Assessment">
-            <div class="image-accent"></div>
-        </div>
+    <div class="about-content">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-title">Iaia Colella<br><span class="accent">Brain Performance Coach</span></h2>
+      <p class="body-text">With a background in psychology and cognitive neuroscience — including a Master's from Brunel University London — I've spent years studying how the brain drives performance under pressure.</p>
+      <p class="body-text">I work with national and international athletes across track &amp; field, swimming, powerlifting, and more. My approach combines <strong>neuroscience, NLP, and mental performance training</strong> to close the gap between training and competition.</p>
+      <p class="body-text">I've proven these methods on myself — completing a half marathon with no prior distance training, powered entirely by mental preparation. If the mind can do that, imagine what it unlocks for athletes already training their bodies.</p>
+      <div class="about-mission">
+        <div class="about-mission-label">My Mission</div>
+        <div class="about-mission-text">To make brain training <strong>as important as physical training</strong> in every athlete's programme — giving you the tools to feel <strong>confident, clear, and purposeful</strong> when it counts.</div>
+      </div>
     </div>
-    </section>
-  
+  </div>
+</section>
 
-    <!-- SERVICES SECTION: Enhanced cards with better hover states -->
-    <section id="services" class="services-enhanced">
-        <div class="section-header fade-in">
-            <h2>Services Designed for Your Success</h2>
-            <p class="section-subtitle">Choose the option that fits your needs</p>
-            <div class="header-underline"></div>
-        </div>
-
-        <div class="services-grid">
-            <div class="service-card fade-in-up" data-service="8-dimension">
-                <div class="service-card-header">
-                    <i class="fas fa-trophy"></i>
-                    <h3>Elite 1:1 Programme</h3>
-                </div>
-                <p>A personalised mental performance journey designed around the athlete’s sport, goals and challenges. Ideal for athletes who want to build strong and sustainable mental skills.</p>
-                <!--<ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> For athletes who want to build mental strength, achieve consistency and perform under pressure.</li>
-                    <li><i class="fas fa-check-circle"></i> Ideal for those committed to sustainable peak performance and the flow state.</li>
-                </ul>-->
-                <!--<button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="elite">Learn more</button>-->
-            </div>
-
-            <div class="service-card fade-in-up" data-service="kickstart" style="animation-delay: 0.1s;">
-                <div class="service-card-header">
-                    <i class="fas fa-book"></i>
-                    <h3>Workshop</h3>
-                </div>
-                <p>A high-impact introduction to brain training tools for teams, academies and performance groups. Practical, interactive and science-based.</p>
-               <!-- <ul class="service-features">
-                    <li><i class="fas fa-check-circle"></i> Ideal for sport academies, development squads or teams looking for an initial experience with mental performance training.</li>
-                </ul>-->
-                <!--<button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="workshop">Learn more</button>-->
-            </div>
-
-            <div class="service-card fade-in-up" data-service="elite" style="animation-delay: 0.2s;">
-                <div class="service-card-header">
-                    <i class="fas fa-users"></i>
-                    <h3>Group Training Cycle</h3>
-                </div>
-                <p>A structured mental training programme delivered monthly or fortnightly for specific squads or age groups.</p>
-                <!--<ul class="service-features">
-
-                </ul>-->
-               <!--- <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="group">Learn more</button>-->
-            </div>
-
-            <div class="service-card fade-in-up" data-service="group" style="animation-delay: 0.3s;">
-                <div class="service-card-header">
-                    <i class="fas fa-handshake"></i>
-                    <h3>Custom Partnership</h3>
-                </div>
-                <p>Collaborations with teams, coaches or agencies. Tailored support across the season, including coaching, assessments and ongoing follow-ups.</p>
-                <!--<ul class="service-features"></li>
-                    <li><i class="fas fa-check-circle"></i> A fully tailored partnership that supports performance units throughout the season with ongoing coaching, assessments and follow-ups.</li>
-                    <li><i class="fas fa-check-circle"></i> Perfect for agencies, academies, performance programmes and private sport organisations.</li>
-                </ul>-->
-               <!-- <button class="service-open" type="button" aria-haspopup="dialog" aria-controls="service-modal" data-service="partnership">Learn more</button>-->
-            </div>
-        </div>
-    </section>
-
-    <!-- Modal (hidden by default) -->
-   <!-- <div id="service-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" tabindex="-1" hidden>
-        <div class="modal-backdrop" data-close="true"></div>
-        <div class="modal-content" role="document">
-            <button class="modal-close" type="button" aria-label="Close details">×</button>
-            <h3 id="service-modal-title"></h3>
-            <div id="service-modal-body"></div>
-        </div>
-    </div>-->
-
-    <!-- TESTIMONIALS SECTION: Smooth horizontal scrolling -->
-    <section id="testimonials" class="testimonial">
-        <h2 class="testimonial__title">TESTIMONIALS</h2>
-        <div class="header-underline"></div>
-        <div class="testimonial__swiper container swiper">
-            <div id="testimonial-wrapper" class="swiper-wrapper">
-            <!-- slides injected by JS -->
-            </div>
-
-            <!-- Pagination bullets -->
-            <div class="swiper-pagination"></div>
-
-            <!-- Navigation buttons -->
-            <div class="swiper-button-prev"><i class="ri-arrow-left-long-line"></i></div>
-            <div class="swiper-button-next"><i class="ri-arrow-right-long-line"></i></div>
-        </div>
-    </section>
-    <!-- CONTACT SECTION: Enhanced form design -->
-         <section id="contact" class="contact-enhanced">
-        <div class="section-header">
-            <h2>Let's Work Together</h2>
-            <div class="header-underline"></div>
-        </div>
-
-        <div class="contact-wrapper">
-            <!-- CONTACT INFO -->
-            <div class="contact-info">
-                <p>Ready to take your performance to the next level?</p>                
-                <a href="https://cal.com/iaiacolella-braincoach/call" 
-                   class="cta-button">
-                    Book Your Call Now
-                </a>
-
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:&#105;&#110;&#102;&#111;&#64;&#98;&#114;&#97;&#105;&#110;&#112;&#101;&#114;&#102;&#111;&#114;&#109;&#97;&#110;&#99;&#101;&#99;&#111;&#97;&#99;&#104;&#105;&#110;&#103;&#46;&#99;&#111;&#109;">&#105;&#110;&#102;&#111;&#64;&#98;&#114;&#97;&#105;&#110;&#112;&#101;&#114;&#102;&#111;&#114;&#109;&#97;&#110;&#99;&#101;&#99;&#111;&#97;&#99;&#104;&#105;&#110;&#103;&#46;&#99;&#111;&#109;</a>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:&#43;&#52;&#52;&#55;&#55;&#48;&#55;&#50;&#50;&#56;&#57;&#54;&#52;">&#43;&#52;&#52;&#55;&#55;&#48;&#55;&#32;&#50;&#50;&#56;&#57;&#54;&#52;</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CONTACT FORM -->
-            <div class="contact-form-wrapper">
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Your Name" required aria-label="Your name">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your Email" required aria-label="Your email">
-                    </div>
-
-                    <div class="form-group">
-                        <select name="service" required aria-label="Select service">
-                            <option value="">Select Your Interest</option>
-                            <option value="Elite 1:1 Programme">Elite 1:1 Programme</option>
-                            <option value="Workshop">Workshop</option>
-                            <option value="Group Training Cycle">Group Training Cycle</option>
-                            <option value="Custom Partnership">Custom Partnership</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <textarea name="message" placeholder="Tell me about your goals..." required aria-label="Your message"></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Me a Message</button>
-                </form>
-            </div>
-
-            <!-- SOCIAL LINKS -->
-            <div class="social-links">
-                <h4>Follow Me</h4>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/maria-rosaria-colella-841875254/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://www.instagram.com/iaia_braincoach" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@iaia_braincoachh" target="_blank" rel="noopener" class="social-icon" aria-label="Tiktok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <br>
-    
-    <!-- Cookie Banner -->
-    <div id="cookie-banner" class="cookie-banner" style="display: none;">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.</p> 
-                    <p>See <a href="./assets/pages/cookies-policy.html">Cookies</a> & <a href="./assets/pages/privacy-policy.html">Privacy Policy</a> for more Details</p>
-            </div>
-            <div class="cookie-buttons">
-                <button id="accept-cookies" class="cookie-btn accept">Accept All</button>
-                <button id="reject-cookies" class="cookie-btn reject">Reject</button>
-                <button id="manage-cookies" class="cookie-btn manage">Manage Privacy & Cookies</button>
-            </div>
-        </div>
+<!-- ═══ METHOD ═════════════════════════════════════════ -->
+<section class="method" id="method">
+  <div class="method-inner">
+    <div class="method-content">
+      <span class="section-tag">The Method</span>
+      <h2 class="section-title">8-Dimension <span class="accent">Method™</span></h2>
+      <p class="body-text">A neuroscience-based framework developed from psychology and cognitive neuroscience to understand and strengthen your mental performance.</p>
+      <p class="body-text">This is the foundation of every coaching programme — mapping exactly where your mental game is holding you back, across the 8 dimensions that determine how you compete.</p>
+      <div class="dims">
+        <div class="dim"><span class="dim-dot" style="background:#E63946"></span><span class="dim-name">Focus &amp; Attention</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#9B7DD4"></span><span class="dim-name">Emotional Regulation</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#F4C542"></span><span class="dim-name">Confidence</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#4A90D9"></span><span class="dim-name">Self-Talk</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#F5864B"></span><span class="dim-name">Motivation</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#6B46C1"></span><span class="dim-name">Self-Awareness</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#9DC63D"></span><span class="dim-name">State Management</span></div>
+        <div class="dim"><span class="dim-dot" style="background:#3DB5C4"></span><span class="dim-name">Visualisation</span></div>
+      </div>
+      <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" target="_blank">Take the Assessment →</a>
     </div>
-    
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Brain Performance Coaching. All rights reserved.</p>
-            <p class="footer-tagline">Unlock your Peak Performance - Train your Brain</p>
-            <p class="footer-links">
-                <a href="./assets/pages/privacy-policy.html">Privacy Policy</a> | 
-                <a href="./assets/pages/terms-conditions.html">Terms & Conditions</a> | 
-                <a href="./assets/pages/cookies-policy.html">Cookies Policy</a>
-            </p>
+    <div class="method-visual">
+      <!-- ⚠️ Upload assessment-wheel.jpg from landing page assets to GitHub assets/images/ -->
+      <img src="assets/assessment-wheel.jpg" alt="8-Dimension Method Wheel">
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES (all equal) ══════════════════════════ -->
+<section class="services" id="services">
+  <div class="services-header">
+    <span class="section-tag">Services</span>
+    <h2 class="section-title">Designed for <span class="accent">Your Success</span></h2>
+    <p class="body-text">Choose the programme that fits where you are and where you want to go.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">🏆</span>
+      <div class="service-name">Elite 1:1 Programme</div>
+      <p class="service-desc">A personalised mental performance journey built around your sport, your goals, and your specific challenges. The most comprehensive coaching experience I offer.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">⚡</span>
+      <div class="service-name">Workshop</div>
+      <p class="service-desc">A high-impact introduction to brain training tools for teams, academies and performance groups. Practical, science-backed, and immediately applicable.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🔄</span>
+      <div class="service-name">Group Training Cycle</div>
+      <p class="service-desc">A structured mental training programme delivered monthly or fortnightly for squads or age groups. Build collective mental resilience across your team.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🤝</span>
+      <div class="service-name">Custom Partnership</div>
+      <p class="service-desc">Tailored support across the season with ongoing coaching and integration. For clubs, academies, and organisations seeking a long-term performance edge.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══════════════════════════════════ -->
+<section class="testimonials" id="testimonials">
+  <div class="testi-header">
+    <span class="section-tag">Results</span>
+    <h2 class="section-title">What <span class="accent">Athletes Say</span></h2>
+  </div>
+  <div class="testi-carousel">
+    <div class="testi-track" id="testiTrack">
+
+      <div class="testi-card">
+        <div class="testi-result-tag">3 PBs in one indoor season</div>
+        <p class="testi-quote">"I've hit three PBs this indoor season. I'm no longer scared of getting injured. Now I step onto the track with confidence."</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Alwaaz</div><div class="testi-sport">Sprinting</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">2nd place internationally · Broke 24s in 200m</div>
+        <p class="testi-quote">"I finished 2nd in the 100m final with a PB and broke 24 seconds in the 200m for the first time. There was not a single negative thought in my head that day."</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Aaliyah</div><div class="testi-sport">100m / 200m Sprinting</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">9.3s → 9.1s · Confidence 9/10</div>
+        <p class="testi-quote">"I set a goal of 9.2s — and ended up running 9.1s. That was a huge win. I now rate my confidence 9 out of 10 in achieving my dreams."</p>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jennifer Eduwu</div><div class="testi-sport">Sprinting · National Level</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Fastest training times ever · Confidence 9/10</div>
+        <p class="testi-quote">"I've been hitting some of the fastest times I've ever done in training. Visualisation and journaling are now part of my daily routine."</p>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jessica Calderbank</div><div class="testi-sport">Butterfly Swimming · Jamaican National</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Confidence 4/10 → 8/10</div>
+        <p class="testi-quote">"When I started, my confidence was 4 out of 10. Now I'm at 8. I feel mentally stronger than ever — and back in control for the first time in a long time."</p>
+        <div class="testi-author"><div class="testi-avatar">I</div><div><div class="testi-name">Isaac</div><div class="testi-sport">400m · National Level</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Visualisation transformed</div>
+        <p class="testi-quote">"I learned how to properly immerse myself in visualisation and apply it consistently in competition. Training your mind is essential if you want to get the most out of yourself."</p>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jenna Blundell</div><div class="testi-sport">100m Hurdles</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">2.10m PB · Confidence 10/10</div>
+        <p class="testi-quote">"Right now I'd rate my confidence at a 10 out of 10. I have the tools. I see no reason why I can't achieve my goals."</p>
+        <div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Tobias Cherry</div><div class="testi-sport">High Jump · English Schools National Champion</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Rebuilt after injury</div>
+        <p class="testi-quote">"After my injury I lost all confidence. Iaia helped me rebuild from the inside out. My confidence is at an all-time high and it's showing in every session."</p>
+        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Dominic</div><div class="testi-sport">Athlete</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Achieved flow state in competition</div>
+        <p class="testi-quote">"I used to get anxious before big competitions. Now I use the tools Iaia gave me and I actually get into a flow state. My performance has completely transformed."</p>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Christian</div><div class="testi-sport">Athlete</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Complete mindset shift</div>
+        <p class="testi-quote">"A complete shift in how I think and train. I now have tools I apply every session, not just in competition. It's become part of my daily routine."</p>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Kris</div><div class="testi-sport">Athlete</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">More focused &amp; calm in competition</div>
+        <p class="testi-quote">"More focused, more calm — especially in competition. Iaia's approach is practical and structured. It's not just motivation, it's tools that actually work."</p>
+        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Derek</div><div class="testi-sport">Sprinting 100/200m</div></div></div>
+      </div>
+
+      <div class="testi-card">
+        <div class="testi-result-tag">Quieted the inner noise</div>
+        <p class="testi-quote">"She helped me quiet the inner noise and manage my self-criticism. That mental shift made everything else — training, recovery, competition — so much easier."</p>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Kieran</div><div class="testi-sport">Athlete</div></div></div>
+      </div>
+
+    </div>
+  </div>
+  <div class="testi-controls">
+    <button class="testi-ctrl" onclick="moveCarousel(-1)">←</button>
+    <button class="testi-ctrl" onclick="moveCarousel(1)">→</button>
+    <div class="testi-dots" id="testiDots"></div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ════════════════════════════════════════ -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title">Let's Work <span class="accent">Together</span></h2>
+      <p class="body-text">Ready to take your performance to the next level? Start with the 8D Assessment — it maps exactly where your mental game needs work and sets up your first discovery session.</p>
+      <div class="contact-cta">
+        <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" target="_blank">Take the Assessment →</a>
+      </div>
+      <div class="contact-detail">✉️ &nbsp;<a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a></div>
+      <div class="contact-social">
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/iaia_braincoach?igsh=MXZ3OWh1eXVsYjdsag%3D%3D&utm_source=qr" class="social-link" target="_blank" title="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <!-- LinkedIn -->
+        <a href="https://www.linkedin.com/in/iaia-colella-841875254?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="social-link" target="_blank" title="LinkedIn">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <!-- Facebook (no link yet) -->
+        <a href="#" class="social-link" title="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <!-- TikTok -->
+        <a href="#" class="social-link" title="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <!-- Formspree form — connected to mariarosariacolellacoach@gmail.com -->
+      <form action="https://formspree.io/f/mzdkwzww" method="POST">
+        <input type="hidden" name="_subject" value="New enquiry — brainperformancecoaching.com">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Enter your name" required>
         </div>
-    </footer>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">I'm Interested In</label>
+          <select name="interest" class="form-select">
+            <option value="">Select your interest</option>
+            <option>Elite 1:1 Programme</option>
+            <option>Workshop</option>
+            <option>Group Training Cycle</option>
+            <option>Custom Partnership</option>
+            <option>Other enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Goals</label>
+          <textarea name="message" class="form-textarea" placeholder="Tell me about your goals and what you're working towards..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Me a Message →</button>
+      </form>
+    </div>
+  </div>
+</section>
 
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script src="js/main.js"></script>
+<!-- ═══ FINAL CTA ══════════════════════════════════════ -->
+<section class="final-cta">
+  <span class="section-tag">Take the Next Step</span>
+  <h2 class="final-cta-title">Your body is already training.<br>Is your brain keeping up?</h2>
+  <p class="final-cta-sub">Start with the 8D Performance Assessment and find out exactly where your mental game needs work.</p>
+  <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" style="margin: 0 auto;" target="_blank">Take the Assessment →</a>
+</section>
 
+<!-- ═══ FOOTER ═════════════════════════════════════════ -->
+<footer>
+  <div class="footer-brand">
+    <img src="assets/Logo_w_words.png" alt="Brain Performance Coaching">
+  </div>
+  <p class="footer-copy">© 2025 Brain Performance Coaching. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="privacy.html" class="footer-link">Privacy Policy</a>
+    <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+    <a href="cookies.html" class="footer-link">Cookies Policy</a>
+  </div>
+</footer>
+
+<script>
+function openMobileMenu()  { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(95,54,133,0.08)' : 'none'; });
+
+let currentSlide = 0;
+const track = document.getElementById('testiTrack');
+const cards = Array.from(track.querySelectorAll('.testi-card'));
+const dotsContainer = document.getElementById('testiDots');
+function perView() { return window.innerWidth > 1024 ? 3 : 1; }
+function totalPages() { return Math.ceil(cards.length / perView()); }
+function buildDots() {
+  dotsContainer.innerHTML = '';
+  for (let i = 0; i < totalPages(); i++) {
+    const d = document.createElement('div');
+    d.className = 'testi-dot' + (i === currentSlide ? ' active' : '');
+    d.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(d);
+  }
+}
+function goToSlide(n) {
+  currentSlide = Math.max(0, Math.min(n, totalPages() - 1));
+  const cardW = cards[0].offsetWidth + 24;
+  track.style.transform = `translateX(-${currentSlide * cardW * perView()}px)`;
+  document.querySelectorAll('.testi-dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+function moveCarousel(dir) { goToSlide(currentSlide + dir); }
+buildDots();
+window.addEventListener('resize', () => { buildDots(); goToSlide(0); });
+</script>
 </body>
 </html>

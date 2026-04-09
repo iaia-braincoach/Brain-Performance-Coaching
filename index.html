@@ -216,7 +216,13 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 .footer-link:hover { color: white; }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) { .nav-links {
+  display: none !important;
+}
+
+.nav-toggle {
+  display: none !important;
+}
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }

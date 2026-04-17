@@ -57,22 +57,8 @@ nav {
 }
 .nav-left { display: flex; align-items: center; gap: 48px; }
 .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.nav-brand img { height: 40px; width: auto; }
-.nav-brand-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--purple);
-}.nav-links {
-  display: flex !important;
-  flex-direction: row;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-} .nav-links li {
-  list-style: none;
-}
+.nav-brand img { height: 36px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
 .nav-links a { font-size: 14px; font-weight: 500; color: var(--black); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--purple); }
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
@@ -133,7 +119,7 @@ nav {
 .about { padding: 112px 80px; background: var(--bg2); }
 .about-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
 .about-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(95,54,133,0.14); }
-.about-photo img { width: 90%; display: block; object-fit: cover; }
+.about-photo img { width: 100%; display: block; object-fit: cover; }
 .about-mission { margin-top: 32px; padding: 28px 32px; background: var(--bg3); border-radius: 12px; border-left: 3px solid var(--purple); }
 .about-mission-label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 10px; }
 .about-mission-text { font-size: 16px; line-height: 1.7; color: var(--black); font-weight: 500; }
@@ -145,10 +131,38 @@ nav {
 .method-visual { background: var(--bg2); border-radius: 16px; padding: 40px; border: 1.5px solid var(--faint); display: flex; align-items: center; justify-content: center; position: sticky; top: 100px; }
 .method-visual img { width: 100%; max-width: 380px; display: block; }
 .dims { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 28px 0 36px; }
-.dim { background: var(--bg2); border: 1.5px solid var(--faint); border-radius: 9px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s; }
-.dim:hover { border-color: rgba(95,54,133,0.25); }
+.dim { background: var(--bg2); border: 1.5px solid var(--faint); border-radius: 9px; padding: 14px 16px; display: flex; align-items: center; gap: 10px; transition: border-color 0.2s, box-shadow 0.2s; cursor: pointer; }
+.dim:hover { border-color: rgba(95,54,133,0.35); box-shadow: 0 4px 16px rgba(95,54,133,0.08); }
 .dim-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-.dim-name { font-size: 13px; font-weight: 500; color: var(--black); }
+.dim-name { font-size: 13px; font-weight: 500; color: var(--black); flex: 1; }
+.dim-arrow { font-size: 11px; color: var(--muted); transition: color 0.2s; }
+.dim:hover .dim-arrow { color: var(--purple); }
+
+/* ── DIM MODAL ────────────────────────────────────────── */
+.dim-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(30,26,46,0.55); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.dim-modal-overlay.open { display: flex; }
+.dim-modal {
+  background: var(--bg2); border-radius: 16px; padding: 40px;
+  max-width: 480px; width: 100%; position: relative;
+  box-shadow: 0 32px 80px rgba(30,26,46,0.22);
+  animation: modalIn 0.22s ease;
+}
+@keyframes modalIn { from { opacity:0; transform:translateY(16px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+.dim-modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--bg3); border: none; border-radius: 50%;
+  width: 32px; height: 32px; font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); transition: background 0.2s, color 0.2s;
+}
+.dim-modal-close:hover { background: var(--purple); color: white; }
+.dim-modal-dot { width: 14px; height: 14px; border-radius: 50%; margin-bottom: 20px; }
+.dim-modal-title { font-size: 22px; font-weight: 700; color: var(--black); margin-bottom: 14px; letter-spacing: -0.02em; }
+.dim-modal-text { font-size: 15px; line-height: 1.85; color: var(--muted); }
 
 /* ── SERVICES (all equal) ────────────────────────────── */
 .services { padding: 112px 80px; background: var(--bg2); }
@@ -216,13 +230,7 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 .footer-link:hover { color: white; }
 
 /* ── RESPONSIVE ──────────────────────────────────────── */
-@media (max-width: 1024px) { .nav-links {
-  display: none !important;
-}
-
-.nav-toggle {
-  display: none !important;
-}
+@media (max-width: 1024px) {
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
@@ -242,6 +250,16 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 </head>
 <body>
 
+<!-- ═══ DIM MODAL ══════════════════════════════════════ -->
+<div class="dim-modal-overlay" id="dimModalOverlay" onclick="closeDimModal(event)">
+  <div class="dim-modal">
+    <button class="dim-modal-close" onclick="closeDimModal()">✕</button>
+    <div class="dim-modal-dot" id="dimModalDot"></div>
+    <div class="dim-modal-title" id="dimModalTitle"></div>
+    <p class="dim-modal-text" id="dimModalText"></p>
+  </div>
+</div>
+
 <!-- ═══ MOBILE MENU ══════════════════════════════════ -->
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
@@ -257,9 +275,8 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 <nav id="mainNav">
   <div class="nav-left">
     <a href="#" class="nav-brand">
-  <img src="assets/logo-brain.png">
-  <span class="nav-brand-name">Brain Performance Coaching</span>
-</a>
+      <img src="assets/Logo_w_words.png" alt="Brain Performance Coaching">
+    </a>
     <ul class="nav-links">
       <li><a href="#about">About Me</a></li>
       <li><a href="#method">Method™</a></li>
@@ -298,14 +315,14 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
   <div class="about-inner">
     <div class="about-photo">
       <!-- ⚠️ Upload your photo to GitHub assets/images/ and update this filename -->
-<img src="assets/iaia.jpg" alt="Iaia Colella – Brain Performance Coach">
+      <img src="assets/iaia_portrait.jpg" alt="Iaia Colella — Brain Performance Coach">
     </div>
     <div class="about-content">
       <span class="section-tag">About Me</span>
       <h2 class="section-title">Iaia Colella<br><span class="accent">Brain Performance Coach</span></h2>
       <p class="body-text">With a background in psychology and cognitive neuroscience — including a Master's from Brunel University London — I've spent years studying how the brain drives performance under pressure.</p>
       <p class="body-text">I work with national and international athletes across track &amp; field, swimming, powerlifting, and more. My approach combines <strong>neuroscience, NLP, and mental performance training</strong> to close the gap between training and competition.</p>
-      <p class="body-text">I've proven these methods on myself — completing a half marathon with no prior distance training, powered entirely by mental preparation. If the mind can do that, imagine what it unlocks for athletes already training their bodies.</p>
+      <p class="body-text">Everything I teach, I practise. I use every tool in my own life — and the results speak for themselves. What I offer isn't theory. It's a practical, science-backed system I've tested personally and proven with over 50 athletes across 10+ sports.</p>
       <div class="about-mission">
         <div class="about-mission-label">My Mission</div>
         <div class="about-mission-text">To make brain training <strong>as important as physical training</strong> in every athlete's programme — giving you the tools to feel <strong>confident, clear, and purposeful</strong> when it counts.</div>
@@ -323,20 +340,20 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
       <p class="body-text">A neuroscience-based framework developed from psychology and cognitive neuroscience to understand and strengthen your mental performance.</p>
       <p class="body-text">This is the foundation of every coaching programme — mapping exactly where your mental game is holding you back, across the 8 dimensions that determine how you compete.</p>
       <div class="dims">
-        <div class="dim"><span class="dim-dot" style="background:#E63946"></span><span class="dim-name">Focus &amp; Attention</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#9B7DD4"></span><span class="dim-name">Emotional Regulation</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#F4C542"></span><span class="dim-name">Confidence</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#4A90D9"></span><span class="dim-name">Self-Talk</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#F5864B"></span><span class="dim-name">Motivation</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#6B46C1"></span><span class="dim-name">Self-Awareness</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#9DC63D"></span><span class="dim-name">State Management</span></div>
-        <div class="dim"><span class="dim-dot" style="background:#3DB5C4"></span><span class="dim-name">Visualisation</span></div>
+        <div class="dim" onclick="openDimModal(0)"><span class="dim-dot" style="background:#E63946"></span><span class="dim-name">Focus &amp; Attention</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(1)"><span class="dim-dot" style="background:#9B7DD4"></span><span class="dim-name">Emotional Regulation</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(2)"><span class="dim-dot" style="background:#F4C542"></span><span class="dim-name">Confidence</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(3)"><span class="dim-dot" style="background:#4A90D9"></span><span class="dim-name">Self-Talk</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(4)"><span class="dim-dot" style="background:#F5864B"></span><span class="dim-name">Motivation</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(5)"><span class="dim-dot" style="background:#6B46C1"></span><span class="dim-name">Self-Awareness</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(6)"><span class="dim-dot" style="background:#9DC63D"></span><span class="dim-name">State Management</span><span class="dim-arrow">→</span></div>
+        <div class="dim" onclick="openDimModal(7)"><span class="dim-dot" style="background:#3DB5C4"></span><span class="dim-name">Visualisation</span><span class="dim-arrow">→</span></div>
       </div>
       <a href="https://8d.brainperformancecoaching.com" class="btn-gold-lg" target="_blank">Take the Assessment →</a>
     </div>
     <div class="method-visual">
       <!-- ⚠️ Upload assessment-wheel.jpg from landing page assets to GitHub assets/images/ -->
-<img src="assets//assessment-wheel.jpg" alt="8 Dimension Assessment Wheel">
+      <img src="assets/assessment-wheel.jpg" alt="8-Dimension Method Wheel">
     </div>
   </div>
 </section>
@@ -505,6 +522,10 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
           <input type="email" name="email" class="form-input" placeholder="Enter your email" required>
         </div>
         <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" name="phone" class="form-input" placeholder="Enter your phone number (optional)">
+        </div>
+        <div class="form-group">
           <label class="form-label">I'm Interested In</label>
           <select name="interest" class="form-select">
             <option value="">Select your interest</option>
@@ -536,9 +557,9 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 <!-- ═══ FOOTER ═════════════════════════════════════════ -->
 <footer>
   <div class="footer-brand">
-    <img src="assets/logo-brain.png"> alt="Brain Performance Coaching">
+    <img src="assets/Logo_w_words.png" alt="Brain Performance Coaching">
   </div>
-  <p class="footer-copy">© 2025 Brain Performance Coaching. All rights reserved.</p>
+  <p class="footer-copy">© 2026 Brain Performance Coaching. All rights reserved.</p>
   <div class="footer-links">
     <a href="privacy.html" class="footer-link">Privacy Policy</a>
     <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
@@ -549,6 +570,31 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
 <script>
 function openMobileMenu()  { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow='hidden'; }
 function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow=''; }
+
+const DIMS = [
+  { title: 'Focus & Attention', color: '#E63946', text: "Focus & Attention is your ability to direct and sustain mental concentration on what matters most during performance, especially under pressure, fatigue, or distraction. It determines whether you can execute your skills with precision from start to finish — or whether external factors, mistakes, or mental noise pull you away from your task." },
+  { title: 'Emotional Regulation', color: '#9B7DD4', text: "Emotional Regulation is your ability to manage your emotional responses effectively so they support rather than sabotage your performance. It's what allows you to stay composed when frustration rises, recover quickly after setbacks, and prevent anxiety or anger from hijacking your execution in critical moments." },
+  { title: 'Confidence', color: '#F4C542', text: "Confidence is your ability to trust in your preparation and capability to perform well, regardless of the opponent, conditions, or recent results. It determines whether you compete freely and decisively — or whether doubt, past failures, or comparison to others limit what you're willing to attempt and how fully you commit." },
+  { title: 'Self-Talk', color: '#4A90D9', text: "Self-Talk is your ability to use your internal dialogue intentionally to keep yourself focused, composed, and moving forward during competition. It's the difference between a mind that reinforces execution and resilience under pressure — and one that spirals into criticism, catastrophizing, or chaos when things get difficult." },
+  { title: 'Motivation', color: '#F5864B', text: "Motivation is your ability to maintain inner drive and commitment to training and competition independent of results, external validation, or immediate rewards. It determines whether you push yourself consistently through adversity, setbacks, and the grind of daily preparation — or whether your effort depends on circumstances, mood, or others' expectations." },
+  { title: 'Self-Awareness', color: '#6B46C1', text: "Self-Awareness is your ability to recognize your own mental patterns, emotional triggers, and performance tendencies accurately — both in the moment and through reflection. It's what allows you to identify exactly what's working or limiting you mentally, rather than performing on autopilot or only seeing the gap between training and competition in hindsight." },
+  { title: 'State Management', color: '#9DC63D', text: "State Management is your ability to deliberately enter and maintain the optimal mental and physical state for performance before and during competition. It determines whether you compete in the zone consistently — or whether your activation, focus, and readiness feel random, reactive, or outside your control." },
+  { title: 'Visualisation', color: '#3DB5C4', text: "Visualisation is your ability to mentally rehearse performance using vivid, multi-sensory imagery that prepares your brain and body for execution. It's what allows you to prime movement patterns, simulate pressure scenarios, and pre-program responses before competition — turning mental practice into a competitive advantage rather than passive daydreaming." }
+];
+function openDimModal(i) {
+  const d = DIMS[i];
+  document.getElementById('dimModalTitle').textContent = d.title;
+  document.getElementById('dimModalText').textContent = d.text;
+  document.getElementById('dimModalDot').style.background = d.color;
+  document.getElementById('dimModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeDimModal(e) {
+  if (e && e.target !== document.getElementById('dimModalOverlay')) return;
+  document.getElementById('dimModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('dimModalOverlay').classList.remove('open'); document.body.style.overflow=''; } });
 window.addEventListener('scroll', () => { document.getElementById('mainNav').style.boxShadow = window.scrollY > 20 ? '0 2px 24px rgba(95,54,133,0.08)' : 'none'; });
 
 let currentSlide = 0;

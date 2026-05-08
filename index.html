@@ -51,16 +51,16 @@ body { background: var(--bg); color: var(--black); font-family: var(--font); fon
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 24px 72px;
+  padding: 18px 64px;
   background: rgba(248,247,252,0.94); backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--faint); transition: box-shadow 0.3s;
 }
 .nav-left { display: flex; align-items: center; gap: 48px; }
-.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
-.nav-brand img { height: 44px; width: auto; }
-.nav-brand-name { font-size: 15px; font-weight: 600; color: var(--purple); }
-.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
-.nav-links a { font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; transition: color 0.2s; }
+.nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.nav-brand img { height: 36px; width: auto; }
+.nav-brand-name { font-size: 14px; font-weight: 600; color: var(--purple); }
+.nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+.nav-links a { font-size: 14px; font-weight: 500; color: var(--black); text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover { color: var(--purple); }
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
 
@@ -113,12 +113,12 @@ nav {
 .section-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--purple); margin-bottom: 14px; display: block; }
 .section-title { font-size: clamp(28px, 3vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--black); margin-bottom: 20px; }
 .section-title .accent { color: var(--purple); }
-.body-text { font-size: 16px; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
+.body-text { font-size: 15px; line-height: 1.85; color: var(--muted); margin-bottom: 18px; }
 .body-text strong { color: var(--black); font-weight: 600; }
 
 /* ── ABOUT ───────────────────────────────────────────── */
 .about { padding: 112px 80px; background: var(--bg2); }
-.about-inner { display: grid; grid-template-columns: 0.65fr 1.35fr; gap: 80px; align-items: center; }
+.about-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: center; }
 .about-photo { border-radius: 16px; overflow: hidden; box-shadow: 0 24px 60px rgba(95,54,133,0.14); }
 .about-photo img { width: 100%; display: block; object-fit: cover; }
 .about-mission { margin-top: 32px; padding: 28px 32px; background: var(--bg3); border-radius: 12px; border-left: 3px solid var(--purple); }
@@ -173,7 +173,7 @@ nav {
 .service-card:hover { border-color: var(--purple); box-shadow: 0 8px 32px rgba(95,54,133,0.1); transform: translateY(-2px); }
 .service-icon { font-size: 28px; margin-bottom: 20px; display: block; }
 .service-name { font-size: 18px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
-.service-desc { font-size: 15px; line-height: 1.75; color: var(--muted); }
+.service-desc { font-size: 14px; line-height: 1.75; color: var(--muted); }
 
 /* ── TESTIMONIALS ────────────────────────────────────── */
 .testimonials { padding: 112px 80px; background: var(--bg3); }
@@ -182,12 +182,11 @@ nav {
 .testi-track { display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(0.25,0.1,0.25,1); will-change: transform; }
 .testi-card { background: var(--bg2); border: 1.5px solid var(--faint); border-radius: 14px; padding: 32px; flex: 0 0 calc(33.333% - 16px); display: flex; flex-direction: column; }
 .testi-result-tag { display: inline-flex; align-items: center; background: var(--purple-dim); color: var(--purple); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
-.testi-quote { font-size: 15px; line-height: 1.8; color: var(--muted); font-style: italic; flex: 1; margin-bottom: 20px; }
+.testi-quote { font-size: 14px; line-height: 1.75; color: var(--muted); font-style: italic; flex: 1; margin-bottom: 20px; }
 .testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar { width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0; background: var(--purple-dim); border: 2px solid var(--faint); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--purple); overflow: hidden; }
-.testi-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
-.testi-name { font-size: 15px; font-weight: 600; color: var(--black); }
-.testi-sport { font-size: 13px; color: var(--muted); }
+.testi-avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; background: var(--purple-dim); border: 2px solid var(--faint); display: flex; align-items: center; justify-content: center; font-size: 16px; font-weight: 700; color: var(--purple); }
+.testi-name { font-size: 14px; font-weight: 600; color: var(--black); }
+.testi-sport { font-size: 12px; color: var(--muted); }
 .testi-controls { display: flex; align-items: center; gap: 12px; margin-top: 40px; }
 .testi-ctrl { width: 44px; height: 44px; border-radius: 50%; background: var(--bg2); border: 1.5px solid var(--faint); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; font-size: 18px; font-family: var(--font); }
 .testi-ctrl:hover { border-color: var(--purple); background: var(--purple-dim); }
@@ -236,6 +235,7 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
   nav { padding: 16px 24px; }
   .nav-links { display: none; }
   .nav-toggle { display: block; }
+  nav > .btn-gold { display: none; }
   .hero { padding: 100px 28px 60px; }
   .stats { grid-template-columns: 1fr; }
   .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 24px; }
@@ -404,43 +404,43 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
       <div class="testi-card">
         <div class="testi-result-tag">3 PBs in one indoor season</div>
         <p class="testi-quote">"I've hit three PBs this indoor season. I'm no longer scared of getting injured. Now I step onto the track with confidence."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/alwaaz.jpg" alt="Alwaaz" onerror="this.parentElement.textContent='A'"></div><div><div class="testi-name">Alwaaz</div><div class="testi-sport">Sprinting</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Alwaaz</div><div class="testi-sport">Sprinting</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">2nd place internationally · Broke 24s in 200m</div>
         <p class="testi-quote">"I finished 2nd in the 100m final with a PB and broke 24 seconds in the 200m for the first time. There was not a single negative thought in my head that day."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/aaliyah.jpg" alt="Aaliyah" onerror="this.parentElement.textContent='A'"></div><div><div class="testi-name">Aaliyah</div><div class="testi-sport">100m / 200m Sprinting</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Aaliyah</div><div class="testi-sport">100m / 200m Sprinting</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">9.3s → 9.1s · Confidence 9/10</div>
         <p class="testi-quote">"I set a goal of 9.2s — and ended up running 9.1s. That was a huge win. I now rate my confidence 9 out of 10 in achieving my dreams."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/jennifer.jpg" alt="Jennifer Eduwu" onerror="this.parentElement.textContent='J'"></div><div><div class="testi-name">Jennifer Eduwu</div><div class="testi-sport">Sprinting · National Level</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jennifer Eduwu</div><div class="testi-sport">Sprinting · National Level</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">Fastest training times ever · Confidence 9/10</div>
         <p class="testi-quote">"I've been hitting some of the fastest times I've ever done in training. Visualisation and journaling are now part of my daily routine."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/jessica.jpg" alt="Jessica Calderbank" onerror="this.parentElement.textContent='J'"></div><div><div class="testi-name">Jessica Calderbank</div><div class="testi-sport">Butterfly Swimming · Jamaican National</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jessica Calderbank</div><div class="testi-sport">Butterfly Swimming · Jamaican National</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">Confidence 4/10 → 8/10</div>
         <p class="testi-quote">"When I started, my confidence was 4 out of 10. Now I'm at 8. I feel mentally stronger than ever — and back in control for the first time in a long time."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/isaac.jpg" alt="Isaac" onerror="this.parentElement.textContent='I'"></div><div><div class="testi-name">Isaac</div><div class="testi-sport">400m · National Level</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">I</div><div><div class="testi-name">Isaac</div><div class="testi-sport">400m · National Level</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">Visualisation transformed</div>
         <p class="testi-quote">"I learned how to properly immerse myself in visualisation and apply it consistently in competition. Training your mind is essential if you want to get the most out of yourself."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/jenna.jpg" alt="Jenna Blundell" onerror="this.parentElement.textContent='J'"></div><div><div class="testi-name">Jenna Blundell</div><div class="testi-sport">100m Hurdles</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jenna Blundell</div><div class="testi-sport">100m Hurdles</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">2.10m PB · Confidence 10/10</div>
         <p class="testi-quote">"Right now I'd rate my confidence at a 10 out of 10. I have the tools. I see no reason why I can't achieve my goals."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/tobias.jpg" alt="Tobias Cherry" onerror="this.parentElement.textContent='T'"></div><div><div class="testi-name">Tobias Cherry</div><div class="testi-sport">High Jump · English Schools National Champion</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Tobias Cherry</div><div class="testi-sport">High Jump · English Schools National Champion</div></div></div>
       </div>
 
       <div class="testi-card">
@@ -464,67 +464,13 @@ footer { background: var(--black); padding: 44px 80px; display: flex; justify-co
       <div class="testi-card">
         <div class="testi-result-tag">More focused &amp; calm in competition</div>
         <p class="testi-quote">"More focused, more calm — especially in competition. Iaia's approach is practical and structured. It's not just motivation, it's tools that actually work."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/derek.jpg" alt="Derek" onerror="this.parentElement.textContent='D'"></div><div><div class="testi-name">Derek</div><div class="testi-sport">Sprinting 100/200m</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">Derek</div><div class="testi-sport">Sprinting 100/200m</div></div></div>
       </div>
 
       <div class="testi-card">
         <div class="testi-result-tag">Quieted the inner noise</div>
         <p class="testi-quote">"She helped me quiet the inner noise and manage my self-criticism. That mental shift made everything else — training, recovery, competition — so much easier."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/kieran.jpg" alt="Kieran" onerror="this.parentElement.textContent='K'"></div><div><div class="testi-name">Kieran</div><div class="testi-sport">Athlete</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">Multiple PBs · Anxiety reduced</div>
-        <p class="testi-quote">"Journaling every morning and breathing techniques truly changed my life — reducing my anxiety not only in sport, but in everyday life as well."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/hugo.jpg" alt="Hugo" onerror="this.parentElement.textContent='H'"></div><div><div class="testi-name">Hugo</div><div class="testi-sport">200m / 400m · Montreal</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">7th BUCS Indoors · 1:49 800m</div>
-        <p class="testi-quote">"I no longer feel controlled by chance emotionally. I now know when to relax and when to push. Training has become far more enjoyable because I feel in control."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/ray.jpg" alt="Ray Lenore" onerror="this.parentElement.textContent='R'"></div><div><div class="testi-name">Ray Lenore</div><div class="testi-sport">800m Track & Field</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">48.3s → 47.5s · British Indoor Final</div>
-        <p class="testi-quote">"I came in with a PB of 48.3 seconds and improved to 47.5. Making a British indoor final wasn't even in my sights before starting this coaching."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/hakan.jpg" alt="Hakan Bello" onerror="this.parentElement.textContent='H'"></div><div><div class="testi-name">Hakan Bello</div><div class="testi-sport">400m · National & International</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">Confidence 3/10 → 9/10</div>
-        <p class="testi-quote">"I was rated 3/10 before the programme. Now I can confidently say I'm at 9/10 consistently on a daily basis. My mental clarity has skyrocketed."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/hagen.jpg" alt="Hagen" onerror="this.parentElement.textContent='H'"></div><div><div class="testi-name">Hagen</div><div class="testi-sport">100m / 200m Sprinting</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">2 PBs in Cardiff · Fastest season ever</div>
-        <p class="testi-quote">"I went into the race completely relaxed, used the visualisations we'd practised, and came away with two PBs in the 100m and 200m."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/eli.jpg" alt="Eli" onerror="this.parentElement.textContent='E'"></div><div><div class="testi-name">Eli</div><div class="testi-sport">100m / 200m · Welsh International</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">Sub-22s 200m · Hit national standards</div>
-        <p class="testi-quote">"I finally broke 22 seconds in the 200m — a goal I've had since 2022. I've become a more confident, more focused, more consistent athlete."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/theo.jpg" alt="Theo" onerror="this.parentElement.textContent='T'"></div><div><div class="testi-name">Theo</div><div class="testi-sport">100m / 200m · National Level</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">Mindset transformed through injury</div>
-        <p class="testi-quote">"My injury hasn't healed yet, but I now feel in a much stronger place to tackle my recovery and return to running when my body is ready."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/constance.jpg" alt="Constance" onerror="this.parentElement.textContent='C'"></div><div><div class="testi-name">Constance</div><div class="testi-sport">Cross Country & Track · Injury Recovery</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">Visualisation & mindset optimised</div>
-        <p class="testi-quote">"My thought process is completely different when I make mistakes now. I look for things I did right first — and it makes the whole experience far more positive."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/sulaiman.jpg" alt="Sulaiman Ouiles" onerror="this.parentElement.textContent='S'"></div><div><div class="testi-name">Sulaiman Ouiles</div><div class="testi-sport">Decathlon · International</div></div></div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-result-tag">PB +1s · Semi-finals at Nationals</div>
-        <p class="testi-quote">"I PB'd by over a second in the 400m and qualified for the semi-finals at nationals — something I honestly didn't believe I could do."</p>
-        <div class="testi-author"><div class="testi-avatar"><img src="athletes/ollie.jpg" alt="Ollie" onerror="this.parentElement.textContent='O'"></div><div><div class="testi-name">Ollie</div><div class="testi-sport">400m · Sheffield & Ireland</div></div></div>
+        <div class="testi-author"><div class="testi-avatar">K</div><div><div class="testi-name">Kieran</div><div class="testi-sport">Athlete</div></div></div>
       </div>
 
     </div>

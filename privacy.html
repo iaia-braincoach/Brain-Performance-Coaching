@@ -1,85 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy — Brain Performance Coaching</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="assets/logo-brain.png">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--purple:#5F3685;--gold:#E8B84B;--bg:#F8F7FC;--bg2:#fff;--black:#1E1A2E;--muted:#6B6880;--faint:rgba(95,54,133,0.12);--font:'Plus Jakarta Sans',sans-serif}
-    body{background:var(--bg);color:var(--black);font-family:var(--font);font-weight:300;line-height:1.7}
-    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 64px;background:rgba(248,247,252,0.95);backdrop-filter:blur(14px);border-bottom:1px solid var(--faint)}
+    :root{
+      --purple:#5F3685;--gold:#E8B84B;
+      --bg:#F8F7FC;--black:#1E1A2E;--muted:#6B6880;
+      --faint:rgba(95,54,133,0.10);
+      --serif:'Instrument Serif',Georgia,serif;
+      --sans:'Plus Jakarta Sans',system-ui,sans-serif;
+    }
+    body{background:var(--bg);color:var(--black);font-family:var(--sans);line-height:1.75;min-height:100vh;display:flex;flex-direction:column}
+    /* ── NAV ── */
+    nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:68px;background:rgba(248,247,252,0.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--faint)}
     .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-    .nav-brand img{height:34px;width:auto}
-    .btn-back{font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;display:flex;align-items:center;gap:6px}
-    .btn-back:hover{opacity:0.75}
-    .page{max-width:760px;margin:0 auto;padding:72px 40px}
-    .page-tag{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:14px;display:block}
-    h1{font-size:clamp(28px,3vw,42px);font-weight:700;letter-spacing:-0.02em;color:var(--black);margin-bottom:12px}
-    .updated{font-size:13px;color:var(--muted);margin-bottom:48px}
-    h2{font-size:18px;font-weight:700;color:var(--black);margin:36px 0 12px}
-    p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:14px}
+    .nav-brand img{height:38px;width:auto;object-fit:contain}
+    .nav-brand-name{font-size:16px;font-weight:600;color:var(--purple);letter-spacing:-0.01em}
+    .nav-links{display:flex;gap:28px}
+    .nav-link{font-size:14px;color:var(--black);text-decoration:none;opacity:0.7;transition:opacity .15s}
+    .nav-link:hover{opacity:1}
+    .btn-back-site{font-size:13px;font-weight:600;color:var(--purple);text-decoration:none;display:flex;align-items:center;gap:6px;padding:9px 0}
+    .btn-back-site:hover{opacity:0.7}
+    /* ── MAIN CONTENT ── */
+    main{flex:1;max-width:780px;margin:0 auto;padding:80px 40px 100px;width:100%}
+    .page-eyebrow{font-size:11px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--purple);margin-bottom:16px;display:block}
+    h1{font-family:var(--serif);font-size:clamp(32px,4vw,52px);font-weight:400;font-style:italic;letter-spacing:-0.02em;color:var(--black);margin-bottom:10px;line-height:1.1}
+    .updated{font-size:13px;color:var(--muted);margin-bottom:56px;padding-bottom:32px;border-bottom:1px solid var(--faint)}
+    h2{font-size:17px;font-weight:700;color:var(--black);margin:40px 0 12px;letter-spacing:-0.01em}
+    p{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:16px}
+    ul{margin:0 0 16px 20px}li{font-size:15px;line-height:1.85;color:var(--muted);margin-bottom:6px}
     a{color:var(--purple);text-decoration:none}a:hover{text-decoration:underline}
-    footer{background:#1E1A2E;padding:32px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
-    .footer-copy{font-size:12px;color:rgba(255,255,255,0.3)}
-    .footer-links{display:flex;gap:20px}
-    .footer-link{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none}
+    strong{color:var(--black);font-weight:600}
+    /* ── FOOTER ── */
+    footer{background:#1E1A2E;color:rgba(255,255,255,0.5);padding:40px 64px}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1200px;margin:0 auto}
+    .footer-brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:15px}
+    .footer-brand img{width:30px;height:30px;object-fit:contain;filter:brightness(0) invert(1)}
+    .footer-copy{font-size:12px;color:rgba(255,255,255,0.28);margin-top:6px}
+    .footer-links{display:flex;gap:24px;flex-wrap:wrap}
+    .footer-link{font-size:13px;color:rgba(255,255,255,0.4);text-decoration:none;transition:color .15s}
     .footer-link:hover{color:#fff}
-    @media(max-width:768px){nav{padding:16px 24px}.page{padding:48px 24px}footer{padding:28px 24px;flex-direction:column;text-align:center}}
-  </style>
+    @media(max-width:768px){
+      nav{padding:0 20px;flex-wrap:wrap;height:auto;padding-top:14px;padding-bottom:14px;gap:12px}
+      .nav-links{display:none}
+      main{padding:56px 24px 80px}
+      footer{padding:32px 24px}
+      .footer-inner{flex-direction:column;text-align:center}
+      .footer-links{justify-content:center}
+    }
+</style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-brand"><img src="assets/logo-brain.png" alt="Brain Performance Coaching"></a>
-  <a href="index.html" class="btn-back">← Back to site</a>
+  <a href="index.html" class="nav-brand">
+    <img src="assets/logo-brain.png" alt="BPC">
+    <span class="nav-brand-name">Brain Performance Coaching</span>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#/" class="nav-link">Home</a>
+    <a href="index.html#/about" class="nav-link">About</a>
+    <a href="index.html#/method" class="nav-link">Method</a>
+    <a href="index.html#/services" class="nav-link">Services</a>
+    <a href="index.html#/results" class="nav-link">Results</a>
+    <a href="index.html#/contact" class="nav-link">Contact</a>
+  </div>
+  <a href="index.html" class="btn-back-site">← Back to website</a>
 </nav>
-<div class="page">
-  <span class="page-tag">Legal</span>
+<main>
+  <span class="page-eyebrow">Legal</span>
   <h1>Privacy Policy</h1>
   <p class="updated">Last updated: April 2026</p>
-
   <p>Brain Performance Coach Ltd ("we", "us", "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data when you use our website at <a href="https://www.brainperformancecoaching.com">brainperformancecoaching.com</a>.</p>
-
   <h2>1. Who We Are</h2>
   <p>Brain Performance Coach Ltd is a limited company registered in England and Wales. Our contact email is <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>.</p>
-
   <h2>2. What Information We Collect</h2>
   <p>We may collect the following types of personal information:</p>
   <p><strong>Information you provide directly:</strong> Name, email address, and any other details you submit via our contact form or assessment intake form, including information about your sport, goals, and performance challenges.</p>
   <p><strong>Information collected automatically:</strong> When you visit our website, we may collect certain technical data including your IP address, browser type, pages visited, and time spent on the site via Google Analytics.</p>
-
   <h2>3. How We Use Your Information</h2>
   <p>We use your personal data to respond to your enquiries, provide coaching services, send relevant information about our programmes (only with your consent), and improve our website and services.</p>
   <p>We do not sell, rent, or trade your personal information to third parties.</p>
-
   <h2>4. Legal Basis for Processing</h2>
   <p>We process your data on the basis of: (a) your consent, where given; (b) the performance of a contract, when you engage our coaching services; and (c) our legitimate interests in running and improving our business.</p>
-
   <h2>5. Data Retention</h2>
   <p>We retain your personal data only as long as necessary for the purposes outlined above, or as required by law. Client coaching records are typically retained for 5 years.</p>
-
   <h2>6. Third-Party Services</h2>
   <p>We use the following third-party services which may process your data: <strong>Google Analytics</strong> (website analytics), <strong>Formspree</strong> (contact form processing), and <strong>Cal.com</strong> (booking management). Each of these services has its own privacy policy.</p>
-
   <h2>7. Your Rights</h2>
   <p>Under the UK GDPR, you have the right to: access the personal data we hold about you, request correction of inaccurate data, request deletion of your data, object to processing, and request a restriction of processing. To exercise any of these rights, contact us at <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>.</p>
-
   <h2>8. Cookies</h2>
   <p>Our website uses cookies to improve your experience. For full details, please see our <a href="cookies.html">Cookies Policy</a>.</p>
-
   <h2>9. Changes to This Policy</h2>
   <p>We may update this Privacy Policy from time to time. We will notify you of any significant changes by posting the new policy on this page with an updated date.</p>
-
   <h2>10. Contact Us</h2>
   <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:info@brainperformancecoaching.com">info@brainperformancecoaching.com</a>.</p>
-</div>
+</main>
 <footer>
-  <p class="footer-copy">© 2025 Brain Performance Coaching. All rights reserved.</p>
-  <div class="footer-links">
-    <a href="privacy.html" class="footer-link">Privacy Policy</a>
-    <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
-    <a href="cookies.html" class="footer-link">Cookies Policy</a>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <img src="assets/logo-brain.png" alt="">
+        Brain Performance Coaching
+      </div>
+      <p class="footer-copy">© 2025 Brain Performance Coaching Ltd. All rights reserved.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html" class="footer-link">Home</a>
+      <a href="privacy.html" class="footer-link">Privacy Policy</a>
+      <a href="terms.html" class="footer-link">Terms &amp; Conditions</a>
+      <a href="cookies.html" class="footer-link">Cookies Policy</a>
+    </div>
   </div>
 </footer>
 </body>

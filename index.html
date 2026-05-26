@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Brain Performance Coaching — Train your brain</title>
   <link rel="icon" type="image/png" href="assets/logo-brain.png">
 
@@ -340,6 +340,62 @@ img { display: block; max-width: 100%; }
 @media (max-width: 520px) {
   .nav-cta .btn { font-size: 13px; padding: 9px 14px; gap: 6px; }
   .nav-cta .btn .arrow { display: none; }
+}
+
+/* ── Hamburger button ────────────────────────────────────────────── */
+.ham-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--ink);
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  margin-left: 6px;
+}
+@media (max-width: 900px) {
+  .ham-btn { display: flex; align-items: center; }
+}
+
+/* ── Mobile slide-out menu ───────────────────────────────────────── */
+.mob-menu {
+  position: fixed;
+  top: 0; right: -100%;
+  width: min(300px, 85vw);
+  height: 100vh;
+  background: var(--paper);
+  z-index: 300;
+  display: flex; flex-direction: column;
+  box-shadow: -4px 0 40px rgba(30,26,46,0.18);
+  transition: right 0.32s cubic-bezier(.2,.7,.2,1);
+  padding-top: 72px;
+  overflow-y: auto;
+}
+.mob-menu.open { right: 0; }
+.mob-menu-inner {
+  padding: 8px 28px 32px;
+  display: flex; flex-direction: column; gap: 0;
+  flex: 1;
+}
+.mob-link {
+  display: block;
+  font-size: 19px; font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.15s;
+}
+.mob-link:hover { color: var(--brand); }
+.mob-link.active { color: var(--brand); font-weight: 600; }
+.mob-menu-cta { margin-top: 28px; padding-top: 4px; }
+.mob-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30,26,46,0.45);
+  z-index: 299;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ── Footer ──────────────────────────────────────────────────────── */
@@ -1198,7 +1254,10 @@ img { display: block; max-width: 100%; }
 .social-link:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .social-link svg { width: 16px; height: 16px; fill: currentColor; }
 
-@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 32px; } }
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .contact-card { order: -1; }
+}
 
 /* CTA ─────────────────────────────────────────────────────────────── */
 .cta-band {
@@ -2073,31 +2132,64 @@ const PAGES = [
 
 // ─── Nav ────────────────────────────────────────────────────────────
 function Nav({ route, brand }) {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+  React.useEffect(() => { setMenuOpen(false); }, [route]);
+  // Prevent body scroll when menu open
+  React.useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
-    <nav className="nav">
-      <div className="nav-inner">
-        <a href="#/" className="nav-brand">
-          <img className="nav-mark-img" src={R("logoBrain", "assets/logo-brain.png")} alt="Brain Performance Coaching" style={{ objectFit: "contain", height: "40px", width: "50px" }} />
-          <span className="nav-name" style={{ color: "rgb(96, 54, 133)", fontSize: "18px", lineHeight: "2", letterSpacing: "-0.2px", textAlign: "left" }}>
-            Brain Performance Coaching
-          </span>
-        </a>
-        <div className="nav-links">
+    <>
+      <nav className="nav">
+        <div className="nav-inner">
+          <a href="#/" className="nav-brand" onClick={() => setMenuOpen(false)}>
+            <img className="nav-mark-img" src={R("logoBrain", "assets/logo-brain.png")} alt="Brain Performance Coaching" style={{ objectFit: "contain", height: "40px", width: "50px" }} />
+            <span className="nav-name" style={{ color: "rgb(96, 54, 133)", lineHeight: "2", letterSpacing: "-0.2px" }}>
+              Brain Performance Coaching
+            </span>
+          </a>
+          <div className="nav-links">
+            {PAGES.map((p) =>
+              <a key={p.route} href={`#${p.route}`}
+                className={`nav-link ${route === p.route ? 'active' : ''}`}>
+                {p.label}
+              </a>
+            )}
+          </div>
+          <div className="nav-cta">
+            <a href={brand.assessmentUrl} className="btn btn-accent btn-sm" target="_blank" rel="noreferrer" style={{ backgroundColor: "rgb(233, 184, 75)" }}>
+              Take the assessment <span className="arrow">→</span>
+            </a>
+            <button className="ham-btn" onClick={() => setMenuOpen(o => !o)} aria-label="Toggle menu">
+              {menuOpen ? '✕' : '☰'}
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {menuOpen && <div className="mob-overlay" onClick={() => setMenuOpen(false)} />}
+      <div className={`mob-menu${menuOpen ? ' open' : ''}`}>
+        <div className="mob-menu-inner">
           {PAGES.map((p) =>
-          <a key={p.route} href={`#${p.route}`}
-          className={`nav-link ${route === p.route ? 'active' : ''}`}>
+            <a key={p.route} href={`#${p.route}`}
+              className={`mob-link${route === p.route ? ' active' : ''}`}
+              onClick={() => setMenuOpen(false)}>
               {p.label}
             </a>
           )}
-        </div>
-        <div className="nav-cta">
-          <a href={brand.assessmentUrl} className="btn btn-accent btn-sm" target="_blank" rel="noreferrer" style={{ textAlign: "justify", justifyContent: "flex-start", backgroundColor: "rgb(233, 184, 75)" }}>
-            Take the assessment <span className="arrow">→</span>
-          </a>
+          <div className="mob-menu-cta">
+            <a className="btn btn-accent" href={brand.assessmentUrl} target="_blank" rel="noreferrer"
+              style={{ backgroundColor: "rgb(233, 184, 75)", width: '100%', justifyContent: 'center' }}
+              onClick={() => setMenuOpen(false)}>
+              Take the assessment →
+            </a>
+          </div>
         </div>
       </div>
-    </nav>);
-
+    </>
+  );
 }
 
 // ─── Footer ────────────────────────────────────────────────────────
@@ -2724,7 +2816,7 @@ function TestiCarousel({ items }) {
 function CtaBand({ brand }) {
   return (
     <div className="shell">
-      <div className="cta-band" style={{ width: "1178px", height: "463px" }}>
+      <div className="cta-band">
         <h2>
           Your body is already training.<br />
           Is your <em>brain</em> keeping up?
@@ -2766,7 +2858,7 @@ function PageHome({ tweaks, brand }) {
             title='What <em>athletes</em> say'
             lead="Three PBs, sub-22 seconds, British indoor finals, confidence rebuilt after injury — the work shows up where it matters most."
           />
-          <TestimonialsSection variant={tweaks.testi} limit={tweaks.testi === 'wall' ? 9 : 12} />
+          <TestimonialsSection variant={tweaks.testi} limit={3} />
           <div style={{ marginTop: 40 }}>
             <a className="btn btn-ghost" href="#/results">All results <span className="arrow">→</span></a>
           </div>
